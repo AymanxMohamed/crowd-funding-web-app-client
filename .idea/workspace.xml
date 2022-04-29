@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="316521f8-2f9d-4559-9ad1-f6490e943e7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/09-crowd-funding-web-app-client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/axiosClient.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/rootReducer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/store.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/helpers.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/index.ts.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +13,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -52,6 +44,23 @@
     <property name="ts.external.directory.path" value="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\src\pages" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651218728765</updated>
-      <workItem from="1651218733098" duration="678000" />
+      <workItem from="1651218733098" duration="1025000" />
     </task>
     <servers />
   </component>
