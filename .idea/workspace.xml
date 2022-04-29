@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="316521f8-2f9d-4559-9ad1-f6490e943e7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common/layouts/SharedLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/account/views/AccountDetailView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/error/PageNotFoundView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/main/MainLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/main/views/MainView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/template-to-copy-only/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/account-routes.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/main-routes.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/layouts/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/AccountLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/index.ts.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651218728765</updated>
       <workItem from="1651218733098" duration="4149000" />
-      <workItem from="1651232876903" duration="2396000" />
+      <workItem from="1651232876903" duration="2886000" />
     </task>
     <servers />
   </component>
