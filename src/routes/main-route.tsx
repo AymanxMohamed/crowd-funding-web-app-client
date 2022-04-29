@@ -1,10 +1,10 @@
 import MainLayout from "../pages/main/MainLayout";
-import { Navigate } from "react-router-dom";
+import { Navigate, RouteObject } from "react-router-dom";
 import MainView from "../pages/main/views/MainView";
 import PageNotFoundView from "../pages/error/PageNotFoundView";
 import React from "react";
 
-const mainRoutes = {
+const mainRoute: RouteObject = {
   path: '/',
   element: <MainLayout/>,
   children: [
@@ -15,4 +15,4 @@ const mainRoutes = {
   ],
 };
 
-export default  mainRoutes;
+export default  mainRoute;

@@ -1,9 +1,9 @@
 import AccountLayout from "../pages/account/AccountLayout";
-import { Navigate } from "react-router-dom";
+import { Navigate, RouteObject } from "react-router-dom";
 import AccountDetailView from "../pages/account/views/AccountDetailView";
 import React from "react";
 
-const accountRoutes = {
+const accountRoute: RouteObject = {
   path: 'account',
   element: <AccountLayout/>,
   children: [
@@ -12,4 +12,4 @@ const accountRoutes = {
   ],
 };
 
-export default accountRoutes;
+export default accountRoute;
