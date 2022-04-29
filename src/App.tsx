@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "./features/reducers/auth";
 
 function App() {
+  const authState = useSelector((state: any) => state.auth);
+
+  const dispatch = useDispatch();
+
+  const clickHandler = () => {
+      dispatch(authActions.toggle());
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <p>Testing Auth State Value {authState.isLoggedIn ? 'True' : 'False'}</p>
+      <button onClick={clickHandler}>Change Auth State</button>
+      <p>This is for test only and to understand how the redux works</p>
+    </Fragment>
   );
 }
 

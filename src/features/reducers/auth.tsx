@@ -6,7 +6,9 @@ const slice = createSlice({
   name:'auth',
   initialState,
   reducers: {
-
+    toggle(state){
+      state.isLoggedIn = !state.isLoggedIn;
+    }
   }
 });
 
