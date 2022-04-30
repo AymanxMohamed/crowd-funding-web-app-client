@@ -1,8 +1,8 @@
 import React from "react";
 import { Navigate, useLocation, useRoutes } from "react-router-dom";
-import MainLayout from "../../views/common/Layouts/MainLayout";
 import PageNotFoundView from "../../views/pages/errors/PageNotFoundView";
 import HomePage from "../../views/pages/homepage";
+import MainLayout from "../../views/common/layouts/MainLayout";
 
 export default function MainRoute() {
   const location  = useLocation();

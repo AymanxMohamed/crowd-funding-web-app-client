@@ -12,6 +12,8 @@ function App() {
             easing: 'ease-out-cubic',
         });
     });
+
+
   return (
     <Fragment>
       <Routes/>
