@@ -8,10 +8,10 @@ const authRoute: RouteObject = {
   path: '/auth',
   element: <AccountLayout/>,
   children: [
-    { path: '', element: <Navigate to={'login'} /> },
+    { path: '', element: <Navigate to={'login'} replace/> },
     { path: 'login', element: <LoginView /> },
     { path: 'register', element: <RegisterView /> },
-    { path: '*', element: <Navigate to={'/404'} /> },
+    { path: '*', element: <Navigate to={'/404'} replace/> },
   ],
 };
 

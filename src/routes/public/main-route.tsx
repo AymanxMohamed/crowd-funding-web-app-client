@@ -9,9 +9,9 @@ const mainRoute: RouteObject = {
   element: <MainLayout/>,
   children: [
     { path: '', element: <HomePage /> },
-    { path: 'account', element: <Navigate to='account' replace={false}/> },
+    { path: 'account', element: <Navigate to='account' replace/> },
     { path: '404', element: <PageNotFoundView /> },
-    { path: '*', element: <Navigate to='/404' /> },
+    { path: '*', element: <Navigate to='/404' replace/> },
   ],
 };
 

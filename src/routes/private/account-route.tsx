@@ -10,7 +10,7 @@ const accountRoute: RouteObject = {
   element: <AccountLayout/>,
   children: [
     { path: '', element: <AccountDetailView /> },
-    { path: '*', element: <Navigate to='/404' /> },
+    { path: '*', element: <Navigate to='/404' replace/> },
     { path: 'login', element: <Login /> },
     { path: 'register', element: <Register /> },
     { path: ':id', element: <AccountDetailView /> },
