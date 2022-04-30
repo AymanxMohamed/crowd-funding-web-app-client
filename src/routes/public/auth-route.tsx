@@ -1,16 +1,15 @@
 import { Navigate, RouteObject } from "react-router-dom";
 import React from "react";
-import AuthLayout from "../../pages/authentication/AuthLayout";
-import LoginView from "../../pages/authentication/views/LoginView";
-import RegisterView from "../../pages/authentication/views/RegisterView";
+import AccountLayout from "../../views/pages/account/AccountLayout";
+import LoginView from "../../views/pages/authentication/views/LoginView";
+import RegisterView from "../../views/pages/authentication/views/RegisterView";
 
 const authRoute: RouteObject = {
   path: '/auth',
-  element: <AuthLayout/>,
+  element: <AccountLayout/>,
   children: [
-    { path: '', element: <LoginView /> },
+    { path: '', element: <Navigate to={'login'} /> },
     { path: 'login', element: <LoginView /> },
-    { path: 'logout', element: <RegisterView /> },
     { path: 'register', element: <RegisterView /> },
     { path: '*', element: <Navigate to={'/404'} /> },
   ],

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="316521f8-2f9d-4559-9ad1-f6490e943e7d" name="Changes" comment="">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/pages/authentication/components/Input.module.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/pages/authentication/components/Input.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -22,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/pages/account/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/account/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shared-components/TextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shared-components/TextInput.tsx" afterDir="false" />
+>>>>>>> c6ae715bdbfca6e41fba91381fef17a32633ebde
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
 >>>>>>> 335ff099f2aafd90cbd7ee115de029d0580c62b6
     </list>
@@ -149,8 +152,12 @@
       <workItem from="1651320916096" duration="11959000" />
 =======
       <workItem from="1651232876903" duration="3569000" />
+<<<<<<< HEAD
+      <workItem from="1651243005958" duration="43189000" />
+=======
       <workItem from="1651243005958" duration="39986000" />
 >>>>>>> 335ff099f2aafd90cbd7ee115de029d0580c62b6
+>>>>>>> c6ae715bdbfca6e41fba91381fef17a32633ebde
     </task>
     <servers />
   </component>

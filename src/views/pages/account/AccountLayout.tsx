@@ -8,5 +8,4 @@ const AccountLayout: React.FC = (): JSX.Element => {
     </div>
   );
 };
-
 export default AccountLayout;

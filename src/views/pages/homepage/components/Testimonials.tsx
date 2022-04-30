@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TestimonialImage from '../../../../assets/images/testimonial.png';
+import TestimonialImage from '../../../../assets/images/Creative-Ideas.png';
 
 const Testimonials: React.FC = (): JSX.Element => {
   return (

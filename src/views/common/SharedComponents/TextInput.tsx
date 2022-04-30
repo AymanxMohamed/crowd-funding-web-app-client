@@ -21,7 +21,7 @@ type Props = {
         | "text"
         | "time"
         | "url",
-    value: string
+    value?: string
 }
 const TextInput: React.FC<Props> = ({ label,autoFocus,disabled,onChange,pattern,placeholder,required,type,value,name }): JSX.Element => {
     const changeHandler = !onChange ? undefined : (event: React.ChangeEvent<HTMLInputElement>) => {

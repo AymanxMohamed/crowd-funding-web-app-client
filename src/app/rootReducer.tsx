@@ -1,5 +1,5 @@
-import authReducer from "../features/reducers/auth";
-import testReducer from "../features/reducers/test";
+import authReducer from "../services/reducers/auth";
+import testReducer from "../services/reducers/test";
 
 const rootReducer = { auth: authReducer, test: testReducer }
 
