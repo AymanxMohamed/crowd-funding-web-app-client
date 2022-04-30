@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="316521f8-2f9d-4559-9ad1-f6490e943e7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/pages/account/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/account/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/pages/account/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/account/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shared-components/ButtonIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shared-components/ButtonIcon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shared-components/TextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shared-components/TextInput.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +92,7 @@
       <updated>1651218728765</updated>
       <workItem from="1651218733098" duration="4149000" />
       <workItem from="1651232876903" duration="3569000" />
-      <workItem from="1651243005958" duration="43134000" />
+      <workItem from="1651243005958" duration="43189000" />
     </task>
     <servers />
   </component>

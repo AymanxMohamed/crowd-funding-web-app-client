@@ -17,7 +17,6 @@ module.exports = {
     extend: {
       colors: {
         transparent: "transparent",
-
         current: colors.black,
         black: colors.black,
         white: colors.white,
