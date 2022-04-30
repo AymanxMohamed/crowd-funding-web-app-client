@@ -1,19 +1,23 @@
-import React, { Fragment } from "react";
-import { useRoutes } from 'react-router-dom';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import RequireAuth from "./guards/RequireAuth";
+import AccountRoute from "./private/AccountRoute";
+import AuthRoute from "./public/AuthRoute";
+import MainRoute from "./public/MainRoute";
 
-import PublicRoutes from "./public/public.routes";
-import { useSelector } from "react-redux";
-import PrivateRoutes from "./private/private.routes";
+const Routes2: React.FC = (): JSX.Element => {
+  return (
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/*" element={<MainRoute />} />
+      <Route path="/auth/*" element={<AuthRoute />} />
 
-const Routes: React.FC = (): JSX.Element => {
+      {/* Protected Routes */}
+      <Route element={<RequireAuth />}>
+        <Route path="/account/*" element={<AccountRoute />} />
+      </Route>
+    </Routes>
+  );
+};
 
-  const { isLoggedIn } = useSelector((state:any) => state.auth);
-
-  const routes = isLoggedIn ? [...PublicRoutes, ...PrivateRoutes] : [...PublicRoutes];
-
-  const routing = useRoutes(routes);
-
-  return <Fragment>{routing}</Fragment>
-}
-
-export default Routes;
+export default Routes2;
