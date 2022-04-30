@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "../homepage/components/Header";
 import {Link} from "react-router-dom";
+import TextInput from "../../shared-components/TextInput";
 
 const Register: React.FC = (): JSX.Element => {
   return (
@@ -16,30 +17,17 @@ const Register: React.FC = (): JSX.Element => {
 
                           {/* Page header */}
                           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                              <h1 className="h1">Welcome. We exist to make entrepreneurism easier.</h1>
+                              <h1 className="h1">Sign Up!.</h1>
                           </div>
 
                           {/* Form */}
                           <div className="max-w-sm mx-auto">
                               <form>
-                                  <div className="flex flex-wrap -mx-3 mb-4">
-                                      <div className="w-full px-3">
-                                          <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="name">Name <span className="text-red-600">*</span></label>
-                                          <input id="name" type="text" className="form-input w-full text-gray-800" placeholder="Enter your name" required />
-                                      </div>
-                                  </div>
-                                  <div className="flex flex-wrap -mx-3 mb-4">
-                                      <div className="w-full px-3">
-                                          <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email <span className="text-red-600">*</span></label>
-                                          <input id="email" type="email" className="form-input w-full text-gray-800" placeholder="Enter your email address" required />
-                                      </div>
-                                  </div>
-                                  <div className="flex flex-wrap -mx-3 mb-4">
-                                      <div className="w-full px-3">
-                                          <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Password <span className="text-red-600">*</span></label>
-                                          <input id="password" type="password" className="form-input w-full text-gray-800" placeholder="Enter your password" required />
-                                      </div>
-                                  </div>
+                                  <TextInput label="First Name" name="firstname" placeholder="Your First Name" type="text"/>
+                                  <TextInput label="Last Name" name="lastname" placeholder="Your Last Name" type="text"/>
+                                  <TextInput label="Email" name="email" placeholder="Enter Your Email" type="email"/>
+                                  <TextInput label="Password" name="email" placeholder="Enter Your Password" type="password"/>
+                                  <TextInput label="Password Confirmation" name="email" placeholder="Enter Your Password" type="password"/>
                                   <div className="flex flex-wrap -mx-3 mt-6">
                                       <div className="w-full px-3">
                                           <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full">Sign up</button>
@@ -77,7 +65,7 @@ const Register: React.FC = (): JSX.Element => {
                                   </div>
                               </form>
                               <div className="text-gray-600 text-center mt-6">
-                                  Already using Simple? <Link to="/signin" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign in</Link>
+                                  Already a Member? <Link to="/account/login" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign in</Link>
                               </div>
                           </div>
 

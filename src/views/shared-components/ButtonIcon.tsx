@@ -8,12 +8,12 @@ type Props = {
 }
 const TextInput: React.FC<Props> = ({ text,icon,color='red',onClick }): JSX.Element => {
     return (
-            <div className="w-full px-3">
-                <button className={"btn px-0 text-white bg-" + color +"-700 hover:bg-" + color +"-600 w-full relative flex items-center"} onClick={onClick}>
-                    <i className={icon + " w-4 h-4 fill-current text-white opacity-75 flex-shrink-0 mx-4"}></i>
-                    <span className="flex-auto pl-16 pr-8 -ml-16">{text}</span>
-                </button>
-            </div>
+        <div className="w-full px-3">
+            <button className={"btn px-0 text-white bg-" + color +"-700 hover:bg-" + color +"-600 w-full relative flex items-center"} onClick={onClick}>
+                {icon && <i className={icon + " w-4 h-4 fill-current text-white opacity-75 flex-shrink-0 mx-4"}></i>}
+                <span className="flex-auto pl-16 -ml-16 text-center">{text}</span>
+            </button>
+        </div>
   );
 };
 
