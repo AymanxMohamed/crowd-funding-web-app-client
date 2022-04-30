@@ -1,7 +1,7 @@
 import { Navigate, RouteObject } from "react-router-dom";
 import React from "react";
 import HomePage from "../../views/pages/homepage";
-import MainLayout from "../../views/common/Layouts/MainLayout";
+import MainLayout from "../../views/common/layouts/MainLayout";
 import PageNotFoundView from "../../views/pages/errors/PageNotFoundView";
 
 const mainRoute: RouteObject = {
