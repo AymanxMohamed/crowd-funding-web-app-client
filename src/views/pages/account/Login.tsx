@@ -1,17 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from "../homepage/components/Header";
 import {Link} from "react-router-dom";
+import TextInput from "../../shared-components/TextInput";
 
 const Login: React.FC = (): JSX.Element => {
+    const [formData, setFormData] = useState({
+        email:"",
+        password:""
+    });
+    function handleEmailChange(value:string) {
+        setFormData({...formData,email: value})
+    }
+    function handlePasswordChange(value:string) {
+        setFormData({...formData,password: value})
+    }
+
   return (
       <div className="flex flex-col min-h-screen overflow-hidden">
-
           {/*  Site header */}
           <Header />
-
           {/*  Page content */}
           <main className="flex-grow">
-
               <section className="bg-gradient-to-b from-gray-100 to-white">
                   <div className="max-w-6xl mx-auto px-4 sm:px-6">
                       <div className="pt-32 pb-12 md:pt-40 md:pb-20">
@@ -24,21 +33,9 @@ const Login: React.FC = (): JSX.Element => {
                           {/* Form */}
                           <div className="max-w-sm mx-auto">
                               <form>
-                                  <div className="flex flex-wrap -mx-3 mb-4">
-                                      <div className="w-full px-3">
-                                          <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email</label>
-                                          <input id="email" type="email" className="form-input w-full text-gray-800" placeholder="Enter your email address" required />
-                                      </div>
-                                  </div>
-                                  <div className="flex flex-wrap -mx-3 mb-4">
-                                      <div className="w-full px-3">
-                                          <div className="flex justify-between">
-                                              <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Password</label>
-                                              <Link to="reset-password" className="text-sm font-medium text-blue-600 hover:underline">Having trouble signing in?</Link>
-                                          </div>
-                                          <input id="password" type="password" className="form-input w-full text-gray-800" placeholder="Enter your password" required />
-                                      </div>
-                                  </div>
+                                  <TextInput label="Email" value={formData.email} name="email" placeholder="Enter Your Email" type="email" onChange={handleEmailChange}></TextInput>
+                                  <TextInput label="Password" value={formData.password} name="email" placeholder="Enter Your Password" type="password" onChange={handlePasswordChange}></TextInput>
+
                                   <div className="flex flex-wrap -mx-3 mb-4">
                                       <div className="w-full px-3">
                                           <div className="flex justify-between">
