@@ -1,10 +1,11 @@
 import React from 'react';
+import { Container } from "react-bootstrap";
 
 const PageNotFoundView: React.FC = (): JSX.Element => {
   return (
-    <div style={{ backgroundColor: 'yellow' }}>
-        <p>404 Page Not Found!!</p>
-    </div>
+    <Container>
+        <h1 className={'text-center'}>404 Page Not Found!! 😢😢😢</h1>
+    </Container>
   );
 };
 
