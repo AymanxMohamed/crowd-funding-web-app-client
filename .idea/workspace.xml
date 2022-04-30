@@ -2,10 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="316521f8-2f9d-4559-9ad1-f6490e943e7d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/features-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/features-element.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/hero-image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/range-slider.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/theme.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/toggle-switch.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/utility-patterns.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/layouts/MainLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/account/Register.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/account/ResetPassword.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/components/Features.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/components/FeaturesBlocks.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/components/Footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/components/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/components/HeroHome.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/components/Newsletter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/components/Testimonials.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/components/navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/utils/Modal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/pages/homepage/utils/Transition.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shared-components/CardComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/account-routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/account-route.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/main-routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/main-route.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/helpers.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/layouts/SharedLayout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/sharedComponents/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/account/AccountLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/account/AccountLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/account/views/AccountDetailView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/account/components/AccountDetailView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/error/PageNotFoundView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/errors/PageNotFoundView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/MainLayout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/views/MainView.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/template-to-copy-only/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/account/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/account-route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/account-route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/main-route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/main-route.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,28 +84,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\node_modules\typescript\lib" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "H:/Projects/iti/django/crowd-funding-web-app-client/src/assets/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "ts.external.directory.path": "H:\\Projects\\iti\\django\\crowd-funding-web-app-client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\src\pages" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\assets\images" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages\account" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\assets\styles" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\src\common" />
-      <recent name="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\src" />
-      <recent name="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\src\pages" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages\homepage" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages\homepage\components" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\assets\images" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\assets" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages" />
     </key>
   </component>
   <component name="RunManager">
@@ -89,16 +136,12 @@
       <updated>1651218728765</updated>
       <workItem from="1651218733098" duration="4149000" />
       <workItem from="1651232876903" duration="3569000" />
+      <workItem from="1651243005958" duration="24441000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/src/features/reducers/test.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

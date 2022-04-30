@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=fallback');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './assets/styles/utility-patterns.scss';
+@import './assets/styles/range-slider.scss';
+@import './assets/styles/toggle-switch.scss';
+@import './assets/styles/theme.scss';
+
+// AOS styles
+$aos-distance: 10px;
+@import 'node_modules/aos/src/sass/aos.scss';

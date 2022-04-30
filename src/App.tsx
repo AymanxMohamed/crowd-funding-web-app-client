@@ -1,24 +1,21 @@
-import React, { Fragment } from 'react';
-import './App.css';
-import { useDispatch, useSelector } from "react-redux";
-import { authActions } from "./features/reducers/auth";
+import React, {Fragment, useEffect} from 'react';
+import './App.scss';
 import Routes from "./routes/routes";
+import AOS from 'aos';
 
 function App() {
-  const authState = useSelector((state: any) => state.auth);
-
-  const dispatch = useDispatch();
-
-  const clickHandler = () => {
-      dispatch(authActions.toggle());
-  }
+    useEffect(() => {
+        AOS.init({
+            once: true,
+            disable: 'phone',
+            duration: 700,
+            easing: 'ease-out-cubic',
+        });
+    });
 
   return (
     <Fragment>
       <Routes/>
-      <p>Testing Auth State Value {authState.isLoggedIn ? 'True' : 'False'}</p>
-      <button onClick={clickHandler}>Change Auth State</button>
-      <p>This is for test only and to understand how the redux works</p>
     </Fragment>
   );
 }
