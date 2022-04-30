@@ -3,6 +3,7 @@ import './App.css';
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "./features/reducers/auth";
 import Routes from "./routes/routes";
+import Navbar from "./common/sharedComponents/Navbar";
 
 function App() {
   const authState = useSelector((state: any) => state.auth);
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <Fragment>
+      <Navbar/>
       <Routes/>
       <p>Testing Auth State Value {authState.isLoggedIn ? 'True' : 'False'}</p>
       <button onClick={clickHandler}>Change Auth State</button>

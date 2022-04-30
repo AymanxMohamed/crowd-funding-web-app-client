@@ -1,12 +1,16 @@
 import React, { Fragment } from "react";
 import { useRoutes } from 'react-router-dom';
 
-import mainRoute from "./main-route";
-import accountRoute from "./account-route";
+import PublicRoutes from "./public/public.routes";
+import { useSelector } from "react-redux";
+import PrivateRoutes from "./private/private.routes";
 
 const Routes: React.FC = (): JSX.Element => {
+  const { isLoggedIn } = useSelector((state:any) => state.auth);
 
-  const routing = useRoutes([mainRoute, accountRoute]);
+  const routes = isLoggedIn ? [...PublicRoutes, ...PrivateRoutes] : [...PublicRoutes];
+
+  const routing = useRoutes(routes);
 
   return <Fragment>{routing}</Fragment>
 }
