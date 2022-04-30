@@ -1,11 +1,17 @@
-import React, { Fragment } from 'react';
-import './App.css';
+import React, { Fragment, useEffect } from 'react';
 import Routes from "./routes/routes";
 import Navbar from "./common/sharedComponents/Navbar";
 import { Container } from "react-bootstrap";
 
 function App() {
-
+  // useEffect(() => {
+  //   AOS.init({
+  //     once: true,
+  //     disable: 'phone',
+  //     duration: 700,
+  //     easing: 'ease-out-cubic',
+  //   });
+  // });
   return (
     <Fragment>
       <Navbar/>

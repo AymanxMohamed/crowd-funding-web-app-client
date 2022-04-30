@@ -2,12 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="316521f8-2f9d-4559-9ad1-f6490e943e7d" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/pages/authentication/components/Input.module.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/pages/authentication/components/Input.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/authentication/views/LoginView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authentication/views/LoginView.tsx" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/views/shared-components/ButtonIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shared-components/Checkbox.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/utils/newid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/pages/account/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/account/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shared-components/TextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shared-components/TextInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+>>>>>>> 335ff099f2aafd90cbd7ee115de029d0580c62b6
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +62,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -74,6 +91,36 @@
       <recent name="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\src\common" />
       <recent name="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\src" />
       <recent name="D:\03 Work\05 Programming\00 Git Hub Repos\00 ITI\09-crowd-funding-web-app-client\src\pages" />
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "H:/Projects/iti/django/crowd-funding-web-app-client/src/views/shared-components",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "ts.external.directory.path": "H:\\Projects\\iti\\django\\crowd-funding-web-app-client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\shared-components" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\assets\images" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages\account" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\assets\styles" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages\homepage" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages\homepage\components" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\assets\images" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\assets" />
+      <recent name="H:\Projects\iti\django\crowd-funding-web-app-client\src\views\pages" />
+>>>>>>> 335ff099f2aafd90cbd7ee115de029d0580c62b6
     </key>
   </component>
   <component name="RunManager">
@@ -97,18 +144,18 @@
       <option name="presentableId" value="Default" />
       <updated>1651218728765</updated>
       <workItem from="1651218733098" duration="4149000" />
+<<<<<<< HEAD
       <workItem from="1651232876903" duration="5501000" />
       <workItem from="1651320916096" duration="11959000" />
+=======
+      <workItem from="1651232876903" duration="3569000" />
+      <workItem from="1651243005958" duration="39986000" />
+>>>>>>> 335ff099f2aafd90cbd7ee115de029d0580c62b6
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/src/features/reducers/test.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
