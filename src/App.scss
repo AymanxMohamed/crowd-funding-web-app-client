@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 @import './assets/styles/utility-patterns.scss';
 @import './assets/styles/range-slider.scss';
@@ -10,4 +11,5 @@
 
 // AOS styles
 $aos-distance: 10px;
-@import 'node_modules/aos/src/sass/aos.scss';
+@import '../node_modules/aos/src/sass/aos.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';

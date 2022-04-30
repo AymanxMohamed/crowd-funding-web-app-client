@@ -1,44 +1,68 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
-  content: [
-    './index.html',
-    './src/**/*.{js,jsx,ts,tsx}',
-  ],
+
+  purge: {
+    content: [
+      "./src/**/*.{js,jsx,ts,tsx}",
+      "./src/**/**/*.{js,jsx,ts,tsx}",
+      "./src/pages/**/*.{js,jsx,ts,tsx}",
+      "./src/*.{js,jsx,ts,tsx}"
+    ],
+    options: {
+      whitelistPatterns: [/^bg-/]
+    }
+  },
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: colors.black,
+      black: colors.black,
+      white: colors.white,
+      gray: colors.gray,
+      red: colors.red,
+      orange: colors.orange,
+      amber: colors.amber,
+      yellow: colors.yellow,
+      lime: colors.lime,
+      green: colors.green,
+      emerald: colors.emerald,
+      teal: colors.teal,
+      cyan: colors.cyan,
+      sky: colors.sky,
+      blue: colors.blue,
+      indigo: colors.indigo,
+      violet: colors.violet,
+      purple: colors.purple,
+      fuchsia: colors.fuchsia,
+      pink: colors.pink,
+      rose: colors.rose,
+    },
     extend: {
       colors: {
-        gray: {
-          100: '#FBFBFB',
-          200: '#EAEAEA',
-          300: '#DFDFDF',
-          400: '#999999',
-          500: '#7F7F7F',
-          600: '#666666',
-          700: '#4C4C4C',
-          800: '#333333',
-          900: '#191919',
-        },
-        blue: {
-          100: '#E6F0FD',
-          200: '#CCE2FC',
-          300: '#99C5FA',
-          400: '#66A9F7',
-          500: '#338CF5',
-          600: '#0070F4',
-          700: '#0064DA',
-          800: '#0059C2',
-          900: '#004391',
-        },
-        teal: {
-          100: '#E6FFFA',
-          200: '#B2F5EA',
-          300: '#81E6D9',
-          400: '#4FD1C5',
-          500: '#3ABAB4',
-          600: '#319795',
-          700: '#2C7A7B',
-          800: '#285E61',
-          900: '#234E52',
-        },
+        transparent: "transparent",
+
+        current: colors.black,
+        black: colors.black,
+        white: colors.white,
+        gray: colors.gray,
+        red: colors.red,
+        orange: colors.orange,
+        amber: colors.amber,
+        yellow: colors.yellow,
+        lime: colors.lime,
+        green: colors.green,
+        emerald: colors.emerald,
+        teal: colors.teal,
+        cyan: colors.cyan,
+        sky: colors.sky,
+        blue: colors.blue,
+        indigo: colors.indigo,
+        violet: colors.violet,
+        purple: colors.purple,
+        fuchsia: colors.fuchsia,
+        pink: colors.pink,
+        rose: colors.rose,
       },
       boxShadow: {
         xs: '0 0 0 1px rgba(0, 0, 0, 0.16)',
@@ -125,6 +149,12 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    {
+      pattern: /bg-/,
+      variants: ['lg', 'hover', 'focus', 'lg:hover'],
+    }
+  ],
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],

@@ -1,4 +1,5 @@
 import React from 'react';
+import newid from "../utils/newid";
 
 type Props = {
     autoFocus?: boolean,
@@ -26,11 +27,12 @@ const TextInput: React.FC<Props> = ({ label,autoFocus,disabled,onChange,pattern,
     const changeHandler = !onChange ? undefined : (event: React.ChangeEvent<HTMLInputElement>) => {
         onChange(event.target.value);
     };
+    const randomID = newid('textinput')
     return (
       <div className="flex flex-wrap -mx-3 mb-4">
           <div className="w-full px-3">
-              <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor={name}>{label}</label>
-              <input id={name} type={type} value={value} pattern={pattern} placeholder={placeholder} required={required} className="form-input w-full text-gray-800"  onChange={changeHandler} />
+              <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor={randomID}>{label}</label>
+              <input id={randomID} type={type} value={value} pattern={pattern} placeholder={placeholder} required={required} className="form-input w-full text-gray-800"  onChange={changeHandler} />
           </div>
       </div>
   );
