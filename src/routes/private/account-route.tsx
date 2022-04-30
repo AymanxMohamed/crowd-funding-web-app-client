@@ -5,7 +5,6 @@ import Login from "../../views/pages/account/Login";
 import Register from "../../views/pages/account/Register";
 import AccountLayout from "../../views/pages/account/AccountLayout";
 
-
 const accountRoute: RouteObject = {
   path: '/account',
   element: <AccountLayout/>,
