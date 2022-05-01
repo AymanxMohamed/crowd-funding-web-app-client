@@ -1,12 +1,11 @@
 import React from 'react';
 
-import TestimonialImage from '../../../../assets/images/Creative-Ideas.png';
+import TestimonialImage from '../../../../assets/images/testimonial.png';
 
-const Testimonials: React.FC = (): JSX.Element => {
+const Feedbacks: React.FC = (): JSX.Element => {
   return (
     <section className="relative">
 
-      {/* Illustration behind content */}
       <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -mb-32" aria-hidden="true">
         <svg width="1760" height="518" viewBox="0 0 1760 518" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -32,7 +31,7 @@ const Testimonials: React.FC = (): JSX.Element => {
           </div>
 
 
-          {/* Testimonials */}
+          {/* Feedbacks */}
           <div className="max-w-3xl mx-auto mt-20" data-aos="zoom-y-out">
             <div className="relative flex items-start border-2 border-gray-200 rounded bg-white">
 
@@ -62,4 +61,4 @@ const Testimonials: React.FC = (): JSX.Element => {
   );
 }
 
-export default Testimonials;
+export default Feedbacks;

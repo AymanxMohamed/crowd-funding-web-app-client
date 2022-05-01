@@ -2,10 +2,11 @@ import React from 'react';
 import Header from './components/Header';
 import HeroHome from './components/HeroHome';
 import FeaturesHome from './components/Features';
-import FeaturesBlocks from './components/FeaturesBlocks';
-import Testimonials from './components/Testimonials';
+import LatestFeatured from './components/LatestFeatured';
+import Feedbacks from './components/Feedbacks';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
+import LatestProjects from "./components/LatestProjects";
 const HomePage: React.FC = (): JSX.Element => {
   return (
     <>
@@ -20,8 +21,9 @@ const HomePage: React.FC = (): JSX.Element => {
                 {/*  Page sections */}
                 <HeroHome />
                 <FeaturesHome />
-                <FeaturesBlocks />
-                <Testimonials />
+                <LatestProjects />
+                <LatestFeatured />
+                <Feedbacks />
                 <Newsletter />
 
             </main>

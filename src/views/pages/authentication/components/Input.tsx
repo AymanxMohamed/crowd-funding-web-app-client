@@ -1,13 +1,11 @@
 import React from "react";
 import { ErrorMessage, Field, useField } from "formik";
-import classes from "./Input.module.css";
 
 const Input: React.FC<{ type: string; name: string; label: string }> = (
   props
 ) => {
   const { type, name, label } = props;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [field, meta] = useField(name);
+  const [, meta] = useField(name);
   return (
     <div className="form-group row m-5">
       <label htmlFor={name} className="col-12 col-md-2 col-form-label">
@@ -22,7 +20,7 @@ const Input: React.FC<{ type: string; name: string; label: string }> = (
             meta.touched && meta.error && "is-invalid"
           }`}
         />
-        <ErrorMessage component={"div"} name={name} className={classes.error} />
+        <ErrorMessage component={"div"} name={name} className="error"/>
       </div>
     </div>
   );

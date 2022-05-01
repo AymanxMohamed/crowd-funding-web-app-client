@@ -1,10 +1,13 @@
 import React, { Fragment, useEffect, useCallback } from "react";
-import "./App.scss";
-import AOS from "aos";
 import Routes from "./routes/routes";
-import Navbar from "./views/common/SharedComponents/Navbar";
-import { login } from "./services/actions/authActions";
+import {Windmill} from "@windmill/react-ui";
+import AOS from "aos";
+
 import { useAppDispatch } from "./app/hooks";
+import { login } from "./services/actions/authActions";
+import Navbar from "./views/common/SharedComponents/Navbar";
+
+import './App.scss';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -26,7 +29,9 @@ function App() {
     <Fragment>
       {/* <Navbar /> */}
       <button onClick={clickHandler}>Send Request</button>
-      <Routes />
+      <Windmill>
+        <Routes/>
+      </Windmill>
     </Fragment>
   );
 }

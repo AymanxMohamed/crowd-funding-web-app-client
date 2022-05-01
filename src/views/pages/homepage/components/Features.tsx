@@ -39,7 +39,7 @@ const Features: React.FC = (): JSX.Element => {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h2 mb-4">Why Fundraising..?</h1>
+            <h1 className="h2 mb-4">Fundraising Categories</h1>
             <p className="text-xl text-gray-600">The efforts of one person can't move mountains. It's the strength of us all working together that makes a change.</p>
           </div>
 

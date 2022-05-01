@@ -1,11 +1,12 @@
 const colors = require('tailwindcss/colors')
 
-module.exports = {
+module.exports ={
     content: [
       "./src/**/*.{js,jsx,ts,tsx}",
       "./src/**/**/*.{js,jsx,ts,tsx}",
       "./src/pages/**/*.{js,jsx,ts,tsx}",
-      "./src/*.{js,jsx,ts,tsx}"
+      "./src/*.{js,jsx,ts,tsx}",
+      './node_modules/tw-elements/dist/js/**/*.js'
     ],
   theme: {
     extend: {
@@ -133,5 +134,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('tw-elements/dist/plugin')
   ],
 };
