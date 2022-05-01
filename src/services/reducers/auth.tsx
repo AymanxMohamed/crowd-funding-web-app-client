@@ -2,20 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import jwt_decode from "jwt-decode";
 import AuthState from "../types/AuthState";
 import Token from "../types/Token";
-
-const initialState: AuthState = {
-  authenticated: true,
-  user: undefined,
-  tokens: undefined,
-};
+import { getInitialState } from "../utils/auhUtils";
 
 const authSlice = createSlice({
   name: "auth",
-  initialState,
+  initialState: getInitialState() as AuthState,
   reducers: {
-    toggleStatus(state) {
-      state.authenticated = !state.authenticated;
-    },
     setTokens(
       state,
       action: PayloadAction<{ access: string; refresh: string }>
@@ -25,11 +17,16 @@ const authSlice = createSlice({
     },
     setUser(state, action: PayloadAction<string>) {
       let { username } = jwt_decode(action.payload) as Token;
-      state.user = {username};
+      state.user = { username };
     },
+    logout(state) {
+      state.tokens = undefined;
+      state.user = undefined;
+      localStorage.removeItem("authTokens");
+    }
   },
 });
 
-export const { toggleStatus, setUser, setTokens } = authSlice.actions;
+export const { setUser, setTokens, logout } = authSlice.actions;
 export default authSlice.reducer;
 

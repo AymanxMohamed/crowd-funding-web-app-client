@@ -3,13 +3,11 @@ import "./App.scss";
 import AOS from "aos";
 import Routes from "./routes/routes";
 import Navbar from "./views/common/SharedComponents/Navbar";
-import { login } from './services/actions/authActions';
+import { login } from "./services/actions/authActions";
 import { useAppDispatch } from "./app/hooks";
-import useLogin from "./services/hooks/useLogin";
 
 function App() {
   const dispatch = useAppDispatch();
-  useLogin();
   useEffect(() => {
     AOS.init({
       once: true,
@@ -22,7 +20,6 @@ function App() {
   const clickHandler = () => {
     dispatch<any>(login("ayman", "123456"));
     // redirect the user to the home page if their is user
-
   };
 
   return (

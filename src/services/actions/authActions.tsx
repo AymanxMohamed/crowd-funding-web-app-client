@@ -1,5 +1,5 @@
 import { AppDispatch } from "../../app/store";
-import { setTokens, setUser, toggleStatus } from "../reducers/auth";
+import { setTokens, setUser } from "../reducers/auth";
 import { getUserTokens } from "./../../services/api/authentication";
 
 export const login = (username: any, password: any) => {
@@ -8,7 +8,6 @@ export const login = (username: any, password: any) => {
     try {
       const tokens = await getUserTokens(username, password);
       dispatch(setTokens(tokens));
-      dispatch(toggleStatus());
       dispatch(setUser(tokens.refresh));
       console.log(`Access Token: ${tokens.access}`);
       console.log(`Refresh Token: ${tokens.refresh}`);
