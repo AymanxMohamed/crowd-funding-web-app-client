@@ -1,11 +1,15 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useCallback } from "react";
 import "./App.scss";
 import AOS from "aos";
-import { getUserTokens } from "./services/api/authentication";
 import Routes from "./routes/routes";
 import Navbar from "./views/common/SharedComponents/Navbar";
+import { login } from './services/actions/authActions';
+import { useAppDispatch } from "./app/hooks";
+import useLogin from "./services/hooks/useLogin";
 
 function App() {
+  const dispatch = useAppDispatch();
+  useLogin();
   useEffect(() => {
     AOS.init({
       once: true,
@@ -16,12 +20,11 @@ function App() {
   });
 
   const clickHandler = () => {
-    getUserTokens("ayman", "1234561")
-      .then(({ access, refresh }) => {
-        console.log(access, refresh);
-      })
-      .catch((e) => console.log(e));
+    dispatch<any>(login("ayman", "123456"));
+    // redirect the user to the home page if their is user
+
   };
+
   return (
     <Fragment>
       <Navbar />
