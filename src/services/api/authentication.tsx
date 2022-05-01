@@ -18,3 +18,8 @@ export const updateToken = async (token: string) => {
   });
   return response.data;
 };
+
+export const getProjects = async () => {
+  const response = await axiosClient.get("projects");
+  return response.data;
+}

@@ -10,6 +10,7 @@ import Navbar from "./views/common/SharedComponents/Navbar";
 import "./App.scss";
 import useAuth from "./services/hooks/useAuth";
 import useRefresh from "./services/hooks/useRefresh";
+import { getProjects } from "./services/api/authentication";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -25,7 +26,8 @@ function App() {
   });
 
   const clickHandler = () => {
-    dispatch<any>(login("ayman", "123456"));
+    // dispatch<any>(login("ayman", "123456"));
+    // getProjects().then(r => console.log(r)).catch(e => console.log(e));
     // dispatch<any>(refreshToken(tokens?.refresh as string));
     // redirect the user to the home page if their is user
   };

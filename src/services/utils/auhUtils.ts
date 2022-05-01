@@ -1,10 +1,17 @@
 import jwtDecode from "jwt-decode";
 import Token from "../types/Token";
 
-export const getInitialState = () => {
+export const getTokens = () => {
   let tokensString = localStorage.getItem("authTokens");
   if (tokensString) {
-    let tokens = JSON.parse(tokensString);
+    return JSON.parse(tokensString);
+  }
+  return null;
+};
+
+export const getInitialState = () => {
+  let tokens = getTokens();
+  if (tokens) {
     let { username } = jwtDecode(tokens.access) as Token;
     return { tokens, user: { username } };
   }
