@@ -47,7 +47,7 @@ const HeroHome: React.FC = (): JSX.Element => {
               <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">Creative work shows
                 us what’s possible. <br/> Help fund it here.</p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out"
-                   data-aos-delay="300">
+                  data-aos-delay="300">
                 <div>
                   <Link className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
                         to="campaign/new">
