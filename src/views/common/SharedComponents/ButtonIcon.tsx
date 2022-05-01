@@ -14,7 +14,7 @@ const TextInput: React.FC<Props> = ({ text,icon,color='red',onClick }): JSX.Elem
                 <span className="flex-auto pl-16 -ml-16 text-center">{text}</span>
             </button>
         </div>
-  );
+);
 };
 
 export default TextInput;

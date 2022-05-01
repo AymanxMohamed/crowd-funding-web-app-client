@@ -1,9 +1,9 @@
+import { AxiosError } from "axios";
 import { useAppDispatch } from "../../app/hooks";
 import { setTokens, setUser } from "../reducers/auth";
 import useAxios from "./useAxios";
 
 const useAuthApi = () => {
-
   const dispatch = useAppDispatch();
   const axiosClient = useAxios();
 
@@ -24,12 +24,12 @@ const useAuthApi = () => {
       const tokens = await getUserTokens(username, password);
       dispatch(setTokens(tokens));
       dispatch(setUser(tokens.refresh));
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      throw new Error(err.response.data.detail);
     }
   };
   return {
-    login
+    login,
   };
 };
 
