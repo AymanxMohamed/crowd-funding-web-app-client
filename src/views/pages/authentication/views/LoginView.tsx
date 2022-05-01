@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { object, string, number, date, InferType, ref } from 'yup';
+import { object, string, ref } from 'yup';
 import Input from "../components/Input";
 
 const LoginView: React.FC = (): JSX.Element => {

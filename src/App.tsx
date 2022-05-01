@@ -1,7 +1,8 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import './App.scss';
 import Routes from "./routes/routes";
 import AOS from "aos";
+import {Windmill} from "@windmill/react-ui";
 
 function App() {
     useEffect(() => {
@@ -15,9 +16,9 @@ function App() {
 
 
   return (
-    <Fragment>
-      <Routes/>
-    </Fragment>
+      <Windmill>
+        <Routes/>
+      </Windmill>
   );
 }
 
