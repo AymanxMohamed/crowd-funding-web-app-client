@@ -24,9 +24,9 @@ function App() {
 
   return (
     <Fragment>
-      <Navbar />
-      <Routes />
+      {/* <Navbar /> */}
       <button onClick={clickHandler}>Send Request</button>
+      <Routes />
     </Fragment>
   );
 }
