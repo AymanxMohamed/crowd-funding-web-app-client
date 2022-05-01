@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../app/hooks";
 
-const useAuth = () => {
+const useAuthSlice = () => {
   return useAppSelector(state => state.auth);
 }
 
-export default  useAuth;
+export default  useAuthSlice;

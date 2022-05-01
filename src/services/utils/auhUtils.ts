@@ -1,5 +1,11 @@
 import jwtDecode from "jwt-decode";
 import Token from "../types/Token";
+import dayjs from 'dayjs'
+
+export const isTokenExpired = (access: string) => {
+  const accessToken = jwtDecode(access) as Token;
+  return dayjs.unix(accessToken.exp).diff(dayjs()) < 1;
+};
 
 export const getTokens = () => {
   let tokensString = localStorage.getItem("authTokens");

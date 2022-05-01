@@ -4,18 +4,18 @@ import { Windmill } from "@windmill/react-ui";
 import AOS from "aos";
 
 import { useAppDispatch } from "./app/hooks";
-import { login, refreshToken } from "./services/actions/authActions";
+// import { login } from "./services/actions/authActions";
 import Navbar from "./views/common/SharedComponents/Navbar";
 
 import "./App.scss";
-import useAuth from "./services/hooks/useAuth";
-import useRefresh from "./services/hooks/useRefresh";
-import { getProjects } from "./services/api/authentication";
+import useProjectsApi from "./services/hooks/useProjectsApi";
+import useAuthApi from "./services/hooks/useAuthApi";
 
 function App() {
+  const { getProjects } = useProjectsApi();
+  const {login } = useAuthApi();
   const dispatch = useAppDispatch();
-  const { tokens } = useAuth();
-  useRefresh();
+
   useEffect(() => {
     AOS.init({
       once: true,
@@ -27,19 +27,24 @@ function App() {
 
   const clickHandler = () => {
     // dispatch<any>(login("ayman", "123456"));
-    // getProjects().then(r => console.log(r)).catch(e => console.log(e));
-    // dispatch<any>(refreshToken(tokens?.refresh as string));
-    // redirect the user to the home page if their is user
+    login("ayman", "123456");
+  };
+
+  const clickHandler2 = () => {
+    getProjects()
+      .then((r) => console.log(r))
+      .catch((e) => console.log(e));
   };
 
   return (
-    <Fragment>
+    <>
       <Navbar />
-      <button onClick={clickHandler}>Send Request</button>
+      <button onClick={clickHandler}>Login Token</button>
+      <button onClick={clickHandler2}>Projects</button>
       <Windmill>
         <Routes />
       </Windmill>
-    </Fragment>
+    </>
   );
 }
 

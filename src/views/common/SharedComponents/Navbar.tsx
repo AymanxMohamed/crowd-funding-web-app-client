@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../../app/hooks";
-import useAuth from "../../../services/hooks/useAuth";
+import useAuth from "../../../services/hooks/useAuthSlice";
 import { logout } from "../../../services/reducers/auth";
 import BlackLink from "./ui/BlackLink";
 import Logo from "./ui/Logo";

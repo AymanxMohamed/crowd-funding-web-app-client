@@ -1,4 +1,4 @@
-import useAuth from "../../services/hooks/useAuth";
+import useAuth from "../../services/hooks/useAuthSlice";
 import { useLocation } from "react-router-dom";
 import { Outlet, Navigate } from "react-router-dom";
 

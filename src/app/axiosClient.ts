@@ -1,12 +1,16 @@
 import axios from "axios";
-import { getTokens } from "../services/utils/auhUtils";
+import { getTokens, isTokenExpired } from "../services/utils/auhUtils";
+import { refreshToken } from "../services/api/authentication";
 
+const baseURL = `http://localhost:8000`;
 
-export default axios.create({
-  baseURL: "http://localhost:8000",
+const axiosInstance = axios.create({
+  baseURL,
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
-    "Authorization": `Bearer ${getTokens()?.access ||  ''}`
   },
 });
+
+
+export default axiosInstance;

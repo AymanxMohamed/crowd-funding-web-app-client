@@ -1,25 +1,13 @@
-import axiosClient from "../../app/axiosClient";
+import axios from "axios";
 
-export const getUserTokens = async (
-  username: string,
-  password: string,
-  type?: string
-) => {
-  const response = await axiosClient.post(type ? `token/${type}` : "token", {
-    username: username,
-    password: password,
+const baseURL = `http://localhost:8000`;
+
+export const refreshToken = async (refresh: string) => {
+  const response = await axios.post(`${baseURL}/token/refresh`, {
+    refresh,
   });
+  localStorage.setItem("authTokens", JSON.stringify(response.data));
   return response.data;
 };
 
-export const updateToken = async (token: string) => {
-  const response = await axiosClient.post("token/refresh", {
-    refresh: token,
-  });
-  return response.data;
-};
-
-export const getProjects = async () => {
-  const response = await axiosClient.get("projects");
-  return response.data;
-}
+//  note any api reqeust mustn't be added to this file but add it inside a hook file it's a must 
