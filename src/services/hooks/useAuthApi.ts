@@ -1,4 +1,3 @@
-import { AxiosError } from "axios";
 import { useAppDispatch } from "../../app/hooks";
 import { setTokens, setUser } from "../reducers/auth";
 import useAxios from "./useAxios";

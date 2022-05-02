@@ -6,7 +6,6 @@ import AOS from "aos";
 
 import "./App.scss";
 import Header from "./views/pages/homepage/components/Header";
-import Breadcrumb from "./views/common/SharedComponents/ui/Breadcrumb";
 
 function App() {
   useEffect(() => {
@@ -20,7 +19,6 @@ function App() {
 
   return (
     <>
-      <Breadcrumb title={"Settings"} parents={[{title:"Account",link:'accounts'}]}></Breadcrumb>
         <Header />
         <Routes />
     </>

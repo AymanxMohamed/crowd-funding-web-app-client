@@ -1,6 +1,4 @@
 import axios from "axios";
-import { getTokens, isTokenExpired } from "../services/utils/auhUtils";
-import { refreshToken } from "../services/api/authentication";
 
 const baseURL = `http://localhost:8000`;
 

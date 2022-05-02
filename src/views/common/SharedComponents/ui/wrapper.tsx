@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from "../../../pages/homepage/components/Header";
 
 const Wrapper: React.FC<{ children: any }> = ({ children }) => {
   return (
