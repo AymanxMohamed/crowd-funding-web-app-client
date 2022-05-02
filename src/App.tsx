@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import Routes from "./routes/routes";
 import { Windmill } from "@windmill/react-ui";
+import 'flowbite';
+
 import AOS from "aos";
 
 import "./App.scss";
