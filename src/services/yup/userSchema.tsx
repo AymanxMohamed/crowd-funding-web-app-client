@@ -33,10 +33,10 @@ let userSchema = object({
   .optional(),
   confirmPassword: string()
   .oneOf([ref('password'), null], `Password doesn't match`)
-  .optional(),
+  .required('Confirm Password is Required'),
   phoneNumber: string()
   .matches(/^01[0125][0-9]{8}$/, 'Please Enter a valid Phone Number')
-  .required('Phone Number is Required')
+   .optional(),
 });
 
 export default userSchema;
