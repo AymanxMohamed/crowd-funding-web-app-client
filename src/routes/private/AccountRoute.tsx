@@ -4,6 +4,7 @@ import AccountLayout from "../../views/pages/account/AccountLayout";
 import AccountDetailView from "../../views/pages/account/components/AccountDetailView";
 import Login from "../../views/pages/account/Login";
 import Register from "../../views/pages/account/Register";
+import Profile from "../../views/pages/account/Profile";
 
 export default function AccountRoute() {
   const location = useLocation();
@@ -17,6 +18,7 @@ export default function AccountRoute() {
           path: "*",
           element: <Navigate to="/404" state={{ from: location }} replace />,
         },
+        { path: "profile", element: <Profile /> },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
         { path: ":id", element: <AccountDetailView /> },

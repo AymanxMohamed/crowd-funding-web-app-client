@@ -120,20 +120,6 @@ const HeroHome: React.FC = (): JSX.Element => {
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
-
-
-            {/* Modal */}
-            <Modal id="modal" ariaLabel="modal-headline" show={videoModalOpen}
-                  handleClose={() => setVideoModalOpen(false)}>
-              <div className="relative pb-9/16">
-                <iframe
-                  className="absolute w-full h-full"
-                  src="https://www.youtube.com/embed/0ZrzQYzWq68"
-                  title="Video"
-                  allowFullScreen/>
-              </div>
-            </Modal>
-
           </div>
 
         </div>

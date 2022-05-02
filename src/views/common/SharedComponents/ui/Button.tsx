@@ -4,13 +4,7 @@ const Button: React.FC<any> = ({ color, icon, text, ...rest }): JSX.Element => {
   return (
     <div className="w-full px-3">
       <button
-        className={
-          "btn px-0 text-white bg-" +
-          color +
-          "-700 hover:bg-" +
-          color +
-          "-600 w-full relative flex items-center"
-        }
+        className={ "btn px-0 text-white bg-" + color + "-700 hover:bg-" + color + "-600 w-full relative flex items-center"}
         {...rest}
       >
         {icon && (
