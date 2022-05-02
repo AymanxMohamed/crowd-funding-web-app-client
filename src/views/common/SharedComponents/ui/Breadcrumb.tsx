@@ -26,8 +26,8 @@ const Breadcrumb: React.FC<element> = ({ title,parents }): JSX.Element => {
                       Home
                   </a>
               </li>
-              {(parents?.map((element)=>
-                  <li>
+              {(parents?.map((element,key)=>
+                  <li key={key}>
                       <div className="flex items-center">
                           <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
                                xmlns="http://www.w3.org/2000/svg">

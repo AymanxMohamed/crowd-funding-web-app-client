@@ -19,7 +19,6 @@ export default function AccountRoute() {
           element: <Navigate to="/404" state={{ from: location }} replace />,
         },
         { path: "profile", element: <Profile /> },
-        { path: "profile/update", element: <Login /> },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
         { path: ":id", element: <AccountDetailView /> },

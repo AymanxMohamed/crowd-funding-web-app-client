@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Wrapper: React.FC<{ children: any }> = ({ children }) => {
+const AuthWrapper: React.FC<{ children: any }> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <main className="flex-grow">
@@ -16,4 +16,4 @@ const Wrapper: React.FC<{ children: any }> = ({ children }) => {
   )
 }
 
-export default Wrapper;
+export default AuthWrapper;

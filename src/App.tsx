@@ -19,8 +19,8 @@ function App() {
 
   return (
     <>
-        <Header />
-        <Routes />
+      <Header />
+      <Routes />
     </>
   );
 }

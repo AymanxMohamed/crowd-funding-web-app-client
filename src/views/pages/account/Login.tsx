@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Wrapper from "../../common/SharedComponents/ui/wrapper";
+import AuthWrapper from "../../common/SharedComponents/ui/AuthWrapper";
 import TextInput from "../../common/SharedComponents/TextInput";
 import Checkbox from "../../common/SharedComponents/Checkbox";
 import ButtonIcon from "../../common/SharedComponents/ButtonIcon";
@@ -37,7 +37,7 @@ const Login: React.FC = (): JSX.Element => {
   }
 
   return (
-    <Wrapper>
+    <AuthWrapper>
       <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
         <h1 className="h1">Sign In.</h1>
       </div>
@@ -100,7 +100,7 @@ const Login: React.FC = (): JSX.Element => {
           </Link>
         </div>
       </div>
-    </Wrapper>
+    </AuthWrapper>
   );
 };
 
