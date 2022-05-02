@@ -36,7 +36,7 @@ let userSchema = object({
   .required('Confirm Password is Required'),
   phoneNumber: string()
   .matches(/^01[0125][0-9]{8}$/, 'Please Enter a valid Phone Number')
-   .optional(),
+  .optional(),
 });
 
 export default userSchema;

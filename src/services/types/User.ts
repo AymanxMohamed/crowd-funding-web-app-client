@@ -3,10 +3,10 @@ export default interface User {
   exp: number;
   iat: number;
   jti: string;
-  user_id: number;
+  id: number;
   email: string;
-  first_name: string;
-  last_name: string;
-  phone_number: string;
-  profile_picture: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  profilePicture: string;
 }

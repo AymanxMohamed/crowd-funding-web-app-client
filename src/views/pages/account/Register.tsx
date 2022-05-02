@@ -70,9 +70,11 @@ const Register: React.FC = (): JSX.Element => {
                   </div>
                 </form>
                 <div className="text-gray-600 text-center mt-6">
-                  Already a Member? <Link to="/account/login"
+                  Already a Member? 
+                  <Link to="/account/login"
                                           className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign
-                  in</Link>
+                  in
+                  </Link>
                 </div>
               </div>
 

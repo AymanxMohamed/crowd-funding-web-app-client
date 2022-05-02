@@ -1,7 +1,9 @@
 import { object, string } from "yup";
 
 let loginSchema = object({
-  email: string().required("Email Field is Required"),
+  email: string()
+    .email(`Please Enter a valid Email`)
+    .required("Email is Required"),
   password: string().required("password is Required"),
 });
 

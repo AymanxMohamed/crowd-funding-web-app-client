@@ -42,7 +42,7 @@ const Header: React.FC = (): JSX.Element => {
             ) : (
               <>
                 <WhiteLink to="/auth/login" label="Sign in" />
-                <BlackLink label={"Sign Up"} to={"/account/register"} />
+                <BlackLink label={"Sign Up"} to={"/auth/register"} />
               </>
             )}
           </ul>
