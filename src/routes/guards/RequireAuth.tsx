@@ -5,11 +5,12 @@ import { Outlet, Navigate } from "react-router-dom";
 const RequireAuth = () => {
   const { user } = useAuth();
   const location = useLocation();
+  console.log("called");
 
   return user ? (
     <Outlet />
   ) : (
-    <Navigate to={"/"} state={{ from: location }} replace />
+    <Navigate to={"/auth"} state={{ from: location }} replace />
   );
 };
 export default RequireAuth;

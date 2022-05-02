@@ -1,20 +1,33 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import MainLayout from "../views/common/layouts/MainLayout";
+import PageNotFoundView from "../views/pages/errors/PageNotFoundView";
+import HomePage from "../views/pages/homepage";
 import RequireAuth from "./guards/RequireAuth";
-import AccountRoute from "./private/AccountRoute";
+import ProjectsRoute from "./private/ProjectsRoute";
 import AuthRoute from "./public/AuthRoute";
-import MainRoute from "./public/MainRoute";
 
 const Routes2: React.FC = (): JSX.Element => {
+  const location = useLocation();
   return (
     <Routes>
-      {/* Public Routes */}
-      <Route path="/auth/*" element={<AuthRoute />} />
-      <Route path="/account/*" element={<AccountRoute />} />
-      <Route path="/*" element={<MainRoute />} />
+      <Route element={<MainLayout />}>
+        {/* Public Routes */}
+        <Route path="auth/*" element={<AuthRoute />} />
 
-      {/* Protected Routes */}
-      <Route element={<RequireAuth />}></Route>
+        {/* Protected Routes */}
+        <Route element={<RequireAuth />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="projects/*" element={<ProjectsRoute />} />
+        </Route>
+
+        {/* Error Handling */}
+        <Route path="404" element={<PageNotFoundView />} />
+        <Route
+          path="*"
+          element={<Navigate to={"404"} state={{ from: location }} replace />}
+        />
+      </Route>
     </Routes>
   );
 };
