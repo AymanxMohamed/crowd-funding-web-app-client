@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../../../app/hooks";
 import useAuthSlice from "../../../../services/hooks/useAuthSlice";
 import { logout } from "../../../../services/reducers/auth";

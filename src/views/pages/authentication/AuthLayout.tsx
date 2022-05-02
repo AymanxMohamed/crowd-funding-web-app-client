@@ -6,7 +6,7 @@ const AuthLayout: React.FC = (): JSX.Element => {
   const { user } = useAuth();
   return (
     <>
-      {user && <p>Hello {user.username}</p>}
+      {user && <p>Hello {user.first_name} {user.last_name}</p>}
       <Outlet />
     </>
   );

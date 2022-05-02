@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import jwt_decode from "jwt-decode";
 import AuthState from "../types/AuthState";
-import Token from "../types/Token";
 import { getInitialState } from "../utils/auhUtils";
+import User from "../types/User";
 
 const authSlice = createSlice({
   name: "auth",
@@ -13,16 +13,15 @@ const authSlice = createSlice({
       action: PayloadAction<{ access: string; refresh: string }>
     ) {
       state.tokens = action.payload;
-      localStorage.setItem("authTokens", JSON.stringify(action.payload));
     },
     setUser(state, action: PayloadAction<string>) {
-      let { username } = jwt_decode(action.payload) as Token;
-      state.user = { username };
+      state.user = jwt_decode(action.payload) as User;
     },
     logout(state) {
       state.tokens = undefined;
       state.user = undefined;
       localStorage.removeItem("authTokens");
+      sessionStorage.removeItem("authTokens");
     }
   },
 });

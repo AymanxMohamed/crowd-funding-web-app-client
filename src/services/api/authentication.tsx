@@ -1,4 +1,5 @@
 import axios from "axios";
+import { updateStorage } from "../utils/auhUtils";
 
 const baseURL = `http://localhost:8000`;
 
@@ -6,7 +7,8 @@ export const refreshToken = async (refresh: string) => {
   const response = await axios.post(`${baseURL}/token/refresh`, {
     refresh,
   });
-  localStorage.setItem("authTokens", JSON.stringify(response.data));
+  updateStorage(response.data);
+
   return response.data;
 };
 

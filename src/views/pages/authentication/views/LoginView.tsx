@@ -5,21 +5,13 @@ import loginSchema from "../../../../services/yup/loginSchema";
 import Wrapper from "../../../common/SharedComponents/ui/wrapper";
 import Line from "../components/Line";
 import Button from "../../../common/SharedComponents/ui/Button";
-import Checkbox from "../../../common/SharedComponents/Checkbox";
 import useAuthApi from "../../../../services/hooks/useAuthApi";
 import { useNavigate } from "react-router-dom";
+import Checkbox from "../components/CheckBox";
 
 const LoginView: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
   const { login } = useAuthApi();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    remember: false,
-  });
-  function handleRememberMeChange(value: boolean) {
-    setFormData({ ...formData, remember: value });
-  }
 
   function loginWithGoogle() {
     console.log("clicked");
@@ -30,7 +22,8 @@ const LoginView: React.FC = (): JSX.Element => {
   }
 
   const submitHandler = (values: any, { setSubmitting }: any) => {
-    login(values.username, values.password)
+    console.log("inside submit");
+    login(values)
       .then((r) => {
         navigate("/");
       })
@@ -45,8 +38,9 @@ const LoginView: React.FC = (): JSX.Element => {
       <div className="max-w-sm mx-auto">
         <Formik
           initialValues={{
-            username: "",
+            email: "",
             password: "",
+            checked: [],
           }}
           validationSchema={loginSchema}
           onSubmit={submitHandler}
@@ -56,9 +50,9 @@ const LoginView: React.FC = (): JSX.Element => {
               <Form>
                 <Input
                   type={"text"}
-                  name={"username"}
-                  label={"User Name"}
-                  placeholder={"Enter your username"}
+                  name={"email"}
+                  label={"Email"}
+                  placeholder={"Enter your Email"}
                 />
                 <Input
                   type={"password"}
@@ -68,8 +62,8 @@ const LoginView: React.FC = (): JSX.Element => {
                 />
                 <Checkbox
                   label="Keep me signed in"
-                  checked={formData.remember}
-                  onChange={handleRememberMeChange}
+                  name={"checked"}
+                  value={"Keep me signed in"}
                 />
                 <Button text={"Login"} color={"blue"} type={"submit"} />
               </Form>
