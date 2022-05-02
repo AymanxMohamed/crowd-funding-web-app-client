@@ -20,7 +20,7 @@ const RegisterView: React.FC = (): JSX.Element => {
     } catch (err: any) {
       for (let key in err) {
         alert(err[key][0]);
-      } 
+      }
     }
     setSubmitting(false);
   };
@@ -142,7 +142,7 @@ const RegisterView: React.FC = (): JSX.Element => {
                 <div className="text-gray-600 text-center mt-6">
                   Already a Member?
                   <Link
-                    to="/account/login"
+                    to="/auth/login"
                     className="text-blue-600 hover:underline transition duration-150 ease-in-out"
                   >
                     Sign in
