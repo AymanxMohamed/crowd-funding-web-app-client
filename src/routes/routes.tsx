@@ -15,10 +15,9 @@ const Routes2: React.FC = (): JSX.Element => {
       <Route element={<MainLayout />}>
         {/* Public Routes */}
         <Route path="auth/*" element={<AuthRoute />} />
-
+        <Route path="/" element={<HomePage />} />
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>
-          <Route path="/" element={<HomePage />} />
           <Route path="profile" element={<Profile />} />
           <Route path="projects/*" element={<ProjectsRoute />} />
         </Route>
