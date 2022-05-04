@@ -5,7 +5,7 @@ import ArtisticEndeavor from '../../../../assets/images/Artistic-Endeavor.jpg';
 import UniqueInvention from '../../../../assets/images/Unique-Invention.jpg';
 import CreativeIdeas from '../../../../assets/images/Creative-Ideas.png';
 
-const Features: React.FC = (): JSX.Element => {
+const Categories: React.FC = (): JSX.Element => {
 
   const [tab, setTab] = useState(1);
   const tabs = useRef(null);
@@ -14,21 +14,10 @@ const Features: React.FC = (): JSX.Element => {
     {id:2,title:"Creative Ideas",image:CreativeIdeas},
     {id:3,title:"Unique Invention",image:UniqueInvention}
   ]
-  const heightFix = () => {
-    // @ts-ignore
-    if (tabs.current.children[tab]) {
-      // @ts-ignore
-      tabs.current.style.height = tabs.current.children[tab - 1].offsetHeight + 'px'
-    }
-  }
 
-  useEffect(() => {
-    heightFix()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab])
 
   return (
-    <section className="relative">
+    <section className="relative" id="categories">
 
       {/* Section background (needs .relative class on parent and next sibling elements) */}
       <div className="absolute inset-0 bg-gray-100 pointer-events-none " aria-hidden="true"></div>
@@ -54,7 +43,7 @@ const Features: React.FC = (): JSX.Element => {
                 {items.map((item,key) =>
                     <a
                         className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== item.id ? 'bg-white shadow-md border-gray-200 hover:shadow-lg' : 'bg-gray-200 border-transparent'}`}
-                        href="src/views/pages/homepage/components/Features#"
+                        href="#"
                         onClick={(e) => { e.preventDefault(); setTab(item.id); }}
                         key={key}
                     >
@@ -88,7 +77,7 @@ const Features: React.FC = (): JSX.Element => {
                         key={key}
                     >
                       <div className="relative inline-flex flex-col">
-                        <img className="md:max-w-none mx-auto rounded" src={item.image} width="500" height="462" alt="Features bg" />
+                        <img className="md:max-w-none mx-auto rounded" src={item.image} width="500" height="462" alt="Categories bg" />
                       </div>
                     </Transition>
                 )}
@@ -104,4 +93,4 @@ const Features: React.FC = (): JSX.Element => {
   );
 }
 
-export default Features;
+export default Categories;

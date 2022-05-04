@@ -10,7 +10,7 @@ const LatestFeatured: React.FC = (): JSX.Element => {
         {title:"Project 3",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"}
     ]
   return (
-    <section className="relative">
+    <section className="relative" id="featured">
 
       {/* Section background (needs .relative class on parent and next sibling elements) */}
       <div className="absolute inset-0 top-1/4 md:mt-24 lg:mt-0 bg-gray-900 pointer-events-none" aria-hidden="true"></div>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <div className="flex-shrink-0 mr-4">
-      <Link to="/" className="block" aria-label="Cruip">
         <svg
           className="w-8 h-8"
           viewBox="0 0 32 32"
@@ -31,7 +30,6 @@ const Logo = () => {
             fillRule="nonzero"
           />
         </svg>
-      </Link>
     </div>
   );
 }

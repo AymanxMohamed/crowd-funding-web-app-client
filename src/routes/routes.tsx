@@ -6,7 +6,6 @@ import HomePage from "../views/pages/homepage";
 import RequireAuth from "./guards/RequireAuth";
 import ProjectsRoute from "./private/ProjectsRoute";
 import AuthRoute from "./public/AuthRoute";
-import Profile from "../views/pages/account/Profile";
 import AccountRoute from "./private/AccountRoute";
 
 const Routes2: React.FC = (): JSX.Element => {
@@ -23,13 +22,12 @@ const Routes2: React.FC = (): JSX.Element => {
           <Route path="projects/*" element={<ProjectsRoute />} />
         </Route>
 
-        {/* Error Handling */}
-        <Route path="404" element={<PageNotFoundView />} />
-        <Route
+      </Route>
+      <Route path="404" element={<PageNotFoundView />} />
+      <Route
           path="*"
           element={<Navigate to={"404"} state={{ from: location }} replace />}
-        />
-      </Route>
+      />
     </Routes>
   );
 };
