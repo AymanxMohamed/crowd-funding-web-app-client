@@ -8,6 +8,7 @@ import Button from "../../../common/SharedComponents/ui/Button";
 import useAuthApi from "../../../../services/hooks/useAuthApi";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "../components/CheckBox";
+import {toast} from "react-toastify";
 
 const LoginView: React.FC = (): JSX.Element => {
   const navigate = useNavigate();

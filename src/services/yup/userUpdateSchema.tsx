@@ -1,6 +1,6 @@
-import { object, ref, string } from "yup";
+import {mixed, object, ref, string} from "yup";
 
-let userSchema = object({
+let userUpdateSchema = object({
   firstname: string()
   .min(3, `First name must be at least 3 chars`)
   .max(15, `First name Must be 15 chars or less`)
@@ -37,6 +37,13 @@ let userSchema = object({
   phoneNumber: string()
   .matches(/^01[0125][0-9]{8}$/, 'Please Enter a valid Phone Number')
   .optional(),
+  profilePicture: mixed()
+      .nullable()
+      .notRequired()
+      .test("FILE_SIZE", "Uploaded file is too big.",
+          value => !value || (value && value.size > console.log(value)))
+      .test("FILE_FORMAT", "Uploaded file has unsupported format.",
+          value => !value || (value && ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'].includes(value.type)))
 });
 
-export default userSchema;
+export default userUpdateSchema;

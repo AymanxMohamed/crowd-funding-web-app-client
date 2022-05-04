@@ -6,6 +6,7 @@ import HomePage from "../views/pages/homepage";
 import RequireAuth from "./guards/RequireAuth";
 import ProjectsRoute from "./private/ProjectsRoute";
 import AuthRoute from "./public/AuthRoute";
+import Profile from "../views/pages/account/Profile";
 
 const Routes2: React.FC = (): JSX.Element => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const Routes2: React.FC = (): JSX.Element => {
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="projects/*" element={<ProjectsRoute />} />
         </Route>
 
