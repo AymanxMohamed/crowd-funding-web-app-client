@@ -14,6 +14,7 @@ export default function AccountRoute() {
       element: <AccountLayout />,
       children: [
         { path: "", element: <AccountDetailView /> },
+        { path: "profile", element: <Profile /> },
         {
           path: "*",
           element: <Navigate to="/404" state={{ from: location }} replace />,

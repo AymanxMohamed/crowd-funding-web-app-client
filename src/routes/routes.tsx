@@ -7,6 +7,7 @@ import RequireAuth from "./guards/RequireAuth";
 import ProjectsRoute from "./private/ProjectsRoute";
 import AuthRoute from "./public/AuthRoute";
 import Profile from "../views/pages/account/Profile";
+import AccountRoute from "./private/AccountRoute";
 
 const Routes2: React.FC = (): JSX.Element => {
   const location = useLocation();
@@ -14,11 +15,11 @@ const Routes2: React.FC = (): JSX.Element => {
     <Routes>
       <Route element={<MainLayout />}>
         {/* Public Routes */}
-        <Route path="auth/*" element={<AuthRoute />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="auth/*" element={<AuthRoute />} />
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>
-          <Route path="profile" element={<Profile />} />
+          <Route path="account/*" element={<AccountRoute />} />
           <Route path="projects/*" element={<ProjectsRoute />} />
         </Route>
 

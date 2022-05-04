@@ -12,7 +12,6 @@ const Profile: React.FC = (): JSX.Element => {
     const user = useAppSelector(state => state.auth.user)
     return (
         <>
-            <Navbar/>
             <Breadcrumb title={"Settings"}></Breadcrumb>
             <main className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 m-12">
                 <div className="flex flex-wrap justify-between gap-10">
