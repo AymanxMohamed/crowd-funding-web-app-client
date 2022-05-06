@@ -1,7 +1,7 @@
 import axios from "axios";
 import { updateStorage } from "../utils/auhUtils";
+import {API_URL as baseURL} from "../../app/config";
 
-const baseURL = `http://localhost:8000`;
 
 export const refreshToken = async (refresh: string) => {
   const response = await axios.post(`${baseURL}/token/refresh`, {

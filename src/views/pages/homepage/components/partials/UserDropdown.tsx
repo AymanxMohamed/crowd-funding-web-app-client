@@ -25,7 +25,7 @@ const UserDropdown: React.FC = (): JSX.Element => {
                             aria-expanded="false"
                         >
                             <img className="w-8 h-8 rounded-full" src={MEDIA_URL + user?.profilePicture}
-                                 alt="user photo"/>
+                                 alt="user"/>
                         </button>
                         <div className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
                              aria-labelledby="dropdownMenuButton2">
@@ -38,7 +38,7 @@ const UserDropdown: React.FC = (): JSX.Element => {
                                 <li>
                                     <Link to="/projects" className={linkClasses}>Projects</Link>
                                     <Link to="/donations" className={linkClasses}>Donations</Link>
-                                    <Link to="/profile" className={linkClasses}>Profile</Link>
+                                    <Link to="/account/profile" className={linkClasses}>Profile</Link>
                                     <Link to="/auth/login" className={linkClasses} onClick={logoutHandler}>Sign Out</Link>
                                 </li>
                             </ul>
