@@ -36,9 +36,9 @@ const UserDropdown: React.FC = (): JSX.Element => {
                             </div>
                             <ul className="py-1" aria-labelledby="dropdown">
                                 <li>
-                                    <Link to="/projects" className={linkClasses}>Projects</Link>
-                                    <Link to="/donations" className={linkClasses}>Donations</Link>
                                     <Link to="/profile" className={linkClasses}>Profile</Link>
+                                    <Link to="/my-projects" className={linkClasses}>Projects</Link>
+                                    <Link to="/donations" className={linkClasses}>Donations</Link>
                                     <Link to="/auth/login" className={linkClasses} onClick={logoutHandler}>Sign Out</Link>
                                 </li>
                             </ul>
