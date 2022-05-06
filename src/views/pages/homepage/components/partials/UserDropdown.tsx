@@ -39,6 +39,10 @@ const UserDropdown: React.FC = (): JSX.Element => {
                                     <Link to="/projects" className={linkClasses}>Projects</Link>
                                     <Link to="/donations" className={linkClasses}>Donations</Link>
                                     <Link to="/account/profile" className={linkClasses}>Profile</Link>
+
+                                    <Link to="/profile" className={linkClasses}>Profile</Link>
+                                    <Link to="/my-projects" className={linkClasses}>Projects</Link>
+                                    <Link to="/donations" className={linkClasses}>Donations</Link>
                                     <Link to="/auth/login" className={linkClasses} onClick={logoutHandler}>Sign Out</Link>
                                 </li>
                             </ul>
