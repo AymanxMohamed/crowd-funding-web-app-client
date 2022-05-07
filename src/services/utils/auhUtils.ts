@@ -1,9 +1,10 @@
 import jwtDecode from "jwt-decode";
+import Token from "../types/Token";
+import dayjs from "dayjs";
 import User from "../types/User";
-import dayjs from 'dayjs'
 
 export const isTokenExpired = (access: string) => {
-  const accessToken = jwtDecode(access) as User;
+  const accessToken = jwtDecode(access) as Token;
   return dayjs.unix(accessToken.exp).diff(dayjs()) < 1;
 };
 
@@ -18,17 +19,29 @@ export const getTokens = () => {
   return null;
 };
 
+export const getUserData = () => {
+  let localStorageUserData = localStorage.getItem("userData");
+  let sessionStorageUserData = sessionStorage.getItem("userData");
+  if (localStorageUserData) {
+    return JSON.parse(localStorageUserData);
+  } else if (sessionStorageUserData) {
+    return JSON.parse(sessionStorageUserData);
+  }
+  return null;
+};
+
 export const getInitialState = () => {
   let tokens = getTokens();
   if (tokens) {
-    let user: User = jwtDecode(tokens.access);
-    return {user, tokens}
+    return { user: getUserData(), tokens };
   }
   return { User: undefined, tokens: undefined };
 };
 
-
-export const updateStorage = (tokens: { access: string; refresh: string }) => {
+export const updateStorageTokens = (tokens: {
+  access: string;
+  refresh: string;
+}) => {
   let localStorageTokens = localStorage.getItem("authTokens");
   if (localStorageTokens) {
     localStorage.setItem("authTokens", JSON.stringify(tokens));
@@ -36,3 +49,25 @@ export const updateStorage = (tokens: { access: string; refresh: string }) => {
     sessionStorage.setItem("authTokens", JSON.stringify(tokens));
   }
 };
+
+export const updateStorageUserData = (userData: User) => {
+  let localStorageUserData = localStorage.getItem("userData");
+  if (localStorageUserData) {
+    localStorage.setItem("userData", JSON.stringify(userData));
+  } else {
+    sessionStorage.setItem("userData", JSON.stringify(userData));
+  }
+};
+
+export const generateInitialUserData = (token: string) => {
+  const tokenObj: Token = jwtDecode(token);
+  return {
+    id: tokenObj.id,
+    email: tokenObj.email,
+    firstName: tokenObj.firstName,
+    lastName: tokenObj.lastName,
+    phoneNumber: tokenObj.phoneNumber,
+    profilePicture: tokenObj.profilePicture,
+  };
+};
+
