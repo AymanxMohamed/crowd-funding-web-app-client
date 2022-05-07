@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import Routes from "./routes/routes";
-import 'flowbite';
-
+import "flowbite";
 import AOS from "aos";
-
 import "./App.scss";
-import "react-toastify/dist/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   useEffect(() => {
@@ -17,11 +15,7 @@ function App() {
     });
   });
 
-  return (
-    <>
-      <Routes />
-    </>
-  );
+  return <Routes />;
 }
 
 export default App;
