@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import RegisterSchema from "../../../../services/yup/RegisterSchema";
 import useAuthApi from "../../../../services/hooks/useAuthApi";
 import ImageInput from "../components/ImageInput";
+import { toast } from "react-toastify";
 
 const RegisterView: React.FC = (): JSX.Element => {
   const { register } = useAuthApi();
@@ -14,12 +15,16 @@ const RegisterView: React.FC = (): JSX.Element => {
 
   const submitHandler = async (values: any, { setSubmitting }: any) => {
     try {
-      let response = await register(values);
-      console.log(response);
+      // await register(values);
+      toast.promise(register(values), {
+        pending: "Creating Account in prosess",
+        success: "Account Created Successfully",
+        error: "Error ocuured",
+      });
       navigate("/auth/login");
     } catch (err: any) {
       for (let key in err) {
-        alert(err[key][0]);
+        toast.error(err[key][0]);
       }
     }
     setSubmitting(false);

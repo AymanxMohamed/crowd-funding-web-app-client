@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
 import Input from "../components/Input";
 import loginSchema from "../../../../services/yup/loginSchema";
@@ -28,7 +28,8 @@ const LoginView: React.FC = (): JSX.Element => {
       .then((r) => {
         navigate("/");
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => 
+      toast.error(err.message));
     setSubmitting(false);
   };
   return (

@@ -5,6 +5,7 @@ import 'flowbite';
 import AOS from "aos";
 
 import "./App.scss";
+import "react-toastify/dist/ReactToastify.css"
 
 function App() {
   useEffect(() => {
