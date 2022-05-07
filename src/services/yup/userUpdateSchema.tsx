@@ -1,11 +1,11 @@
 import {mixed, object, ref, string} from "yup";
 
 let userUpdateSchema = object({
-  firstname: string()
+  first_name: string()
   .min(3, `First name must be at least 3 chars`)
   .max(15, `First name Must be 15 chars or less`)
   .required('FirstName is Required'),
-  lastname: string()
+  last_name: string()
   .min(3, `Last name must be at least 3 chars`)
   .max(20, `Last name Must be 20 chars or less`)
   .required('LastName is Required'),
@@ -32,18 +32,11 @@ let userUpdateSchema = object({
   )
   .optional(),
   confirmPassword: string()
-  .oneOf([ref('password'), null], `Password doesn't match`)
-  .required('Confirm Password is Required'),
-  phoneNumber: string()
+  .oneOf([ref('password'), null], `Password doesn't match`),
+
+  phone_number: string()
   .matches(/^01[0125][0-9]{8}$/, 'Please Enter a valid Phone Number')
   .optional(),
-  profilePicture: mixed()
-      .nullable()
-      .notRequired()
-      .test("FILE_SIZE", "Uploaded file is too big.",
-          value => !value || (value && value.size > console.log(value)))
-      .test("FILE_FORMAT", "Uploaded file has unsupported format.",
-          value => !value || (value && ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'].includes(value.type)))
 });
 
 export default userUpdateSchema;

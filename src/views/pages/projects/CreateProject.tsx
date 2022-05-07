@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React from 'react';
 
 const CreateProject: React.FC = (): JSX.Element => {
-  const [show, setShow] = useState(true);
-  const navigate = useNavigate();
 
 
   return (

@@ -7,10 +7,7 @@ const ImageInput: React.FC<any> = (props) => {
   return (
     <div className="flex flex-wrap -mx-3 mb-4">
       <div className="w-full px-3">
-        <label
-          htmlFor={id}
-          className="block text-gray-800 text-sm font-medium mb-1"
-        >
+        <label htmlFor={id} className="block text-gray-800 text-sm font-medium mb-1">
           {label}
         </label>
         <div className="col-12 col-md-10">
