@@ -8,6 +8,7 @@ import {useAppSelector} from "../../../app/hooks";
 import ImageInput from "../authentication/components/ImageInput";
 import useAuthApi from "../../../services/hooks/useAuthApi";
 import {useNavigate} from "react-router-dom";
+import {MEDIA_URL} from "../../../app/config";
 
 const Profile: React.FC = (): JSX.Element => {
     const user = useAppSelector(state => state.auth.user)
@@ -28,17 +29,17 @@ const Profile: React.FC = (): JSX.Element => {
             <Breadcrumb title={"Settings"}></Breadcrumb>
             <main className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 m-12">
                 <div className="flex flex-wrap justify-between gap-10">
-                    <UserProfileCard name={user?.firstName + " " + user?.lastName}
-                                     image={user?.profilePicture || ''}></UserProfileCard>
+                    <UserProfileCard name={user?.first_name + " " + user?.last_name}
+                                     image={MEDIA_URL + user?.profile_picture}></UserProfileCard>
                     <div className="flex-grow">
                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Personal
                             Information</h5>
                         <Formik
                             initialValues={{
-                                first_name: user?.firstName || '',
-                                last_name: user?.lastName || '',
+                                first_name: user?.first_name || '',
+                                last_name: user?.last_name || '',
                                 email: user?.email || '',
-                                phone_number: user?.phoneNumber || '',
+                                phone_number: user?.phone_number || '',
                                 password: '',
                                 confirmPassword: '',
                                 profile_picture: '',
@@ -59,7 +60,7 @@ const Profile: React.FC = (): JSX.Element => {
                                         name="confirmPassword"
                                         label="Password Confirmation"
                                         type="password"></ProfileInput>
-                                    <ImageInput name="profile_picture"
+                                    <ImageInput name="picture"
                                                 label="Profile Picture"
                                                 type="file"
                                                 onChange={(event: any) =>

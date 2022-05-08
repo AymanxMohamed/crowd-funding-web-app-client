@@ -13,24 +13,10 @@ let userUpdateSchema = object({
   .email(`Please Enter a valid Email`)
   .required('Email is Required'),
   password: string()
-  .min(8, `Password Should be at least 8 chars`)
-  .matches(
-    /(?=.*[A-Z].*[A-Z])/g,
-    'Password must contain at least two uppercase Letters'
-  )
-  .matches(
-    /(?=.*[!@#$&*])/g,
-    'Password must contain at least one Special case letter'
-  )
-  .matches(
-    /(?=.*[0-9].*[0-9])/g,
-    'Password must contain at least two digits'
-  )
-  .matches(
-    /(?=.*[a-z].*[a-z].*[a-z])/g,
-    'Password must contain at least three lowercase letters'
-  )
-  .optional(),
+      .matches(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+          "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+      ),
   confirmPassword: string()
   .oneOf([ref('password'), null], `Password doesn't match`),
 

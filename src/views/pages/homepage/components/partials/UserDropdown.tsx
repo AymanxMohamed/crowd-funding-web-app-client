@@ -4,6 +4,7 @@ import useAuthSlice from "../../../../../services/hooks/useAuthSlice";
 import {Link} from "react-router-dom";
 import {useAppDispatch} from "../../../../../app/hooks";
 import {logout} from "../../../../../services/reducers/auth";
+import imageLink from "../../../../common/utils/imageLink";
 
 const UserDropdown: React.FC = (): JSX.Element => {
     const dispatch = useAppDispatch();
@@ -24,13 +25,13 @@ const UserDropdown: React.FC = (): JSX.Element => {
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            <img className="w-8 h-8 rounded-full" src={MEDIA_URL + user?.profilePicture}
+                            <img className="w-8 h-8 rounded-full" src={imageLink(user?.profile_picture)}
                                  alt="user"/>
                         </button>
                         <div className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
                              aria-labelledby="dropdownMenuButton2">
                             <div className="py-3 px-4">
-                                <span className="block text-sm text-gray-900 dark:text-white">{user?.firstName + " " + user?.lastName}</span>
+                                <span className="block text-sm text-gray-900 dark:text-white">{user?.first_name + " " + user?.last_name}</span>
                                 <span
                                     className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{user?.email||"" }</span>
                             </div>

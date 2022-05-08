@@ -58,16 +58,3 @@ export const updateStorageUserData = (userData: User) => {
     sessionStorage.setItem("userData", JSON.stringify(userData));
   }
 };
-
-export const generateInitialUserData = (token: string) => {
-  const tokenObj: Token = jwtDecode(token);
-  return {
-    id: tokenObj.id,
-    email: tokenObj.email,
-    firstName: tokenObj.firstName,
-    lastName: tokenObj.lastName,
-    phoneNumber: tokenObj.phoneNumber,
-    profilePicture: tokenObj.profilePicture,
-  };
-};
-
