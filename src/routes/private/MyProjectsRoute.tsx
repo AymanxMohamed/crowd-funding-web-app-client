@@ -3,6 +3,7 @@ import React from "react";
 import AccountDetailView from "../../views/pages/account/components/AccountDetailView";
 import CreateProject from "../../views/pages/projects/CreateProject";
 import ProjectLayout from "../../views/pages/projects/ProjectLayout";
+import UserProjects from "../../views/pages/projects/UserProjects";
 
 export default function ProjectsRoute() {
   const location = useLocation();
@@ -11,7 +12,7 @@ export default function ProjectsRoute() {
       path: "/",
       element: <ProjectLayout />,
       children: [
-        { path: "", element: <AccountDetailView /> },
+        { path: "", element: <UserProjects /> },
         { path: "new", element: <CreateProject /> },
         { path: "show/:id", element: <CreateProject /> },
         { path: "edit/:id", element: <CreateProject /> },
