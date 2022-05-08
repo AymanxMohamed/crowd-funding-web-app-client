@@ -4,7 +4,8 @@ type Props = {
     progressPercent: number
 }
 const CircularProgress: React.FC<Props> = ({ progressPercent }): JSX.Element => {
-
+    if (progressPercent > 100) progressPercent = 100;
+    if (progressPercent < 0) progressPercent = 0;
     return (
         <div className="relative m-auto">
             <div className="inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5">
@@ -31,7 +32,7 @@ const CircularProgress: React.FC<Props> = ({ progressPercent }): JSX.Element => 
                     />
                 </svg>
                 <span className="absolute text-lg text-blue-500">
-                    {progressPercent * 100}%
+                    {(progressPercent * 100).toFixed(0)}%
                 </span>
             </div>
         </div>
