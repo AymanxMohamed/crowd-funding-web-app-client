@@ -6,7 +6,6 @@ import moneyFormat from "../../../common/utils/moneyFormat";
 
 const HeroHome: React.FC = (): JSX.Element => {
 
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
   const projects = [
     {title:"Project 1",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(13).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
     {title:"Project 2",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(14).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
@@ -98,7 +97,6 @@ const HeroHome: React.FC = (): JSX.Element => {
                         </div>
                       </div>
                   )}
-
 
               </div>
               <button

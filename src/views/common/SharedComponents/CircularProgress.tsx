@@ -11,7 +11,7 @@ const CircularProgress: React.FC<Props> = ({ progressPercent }): JSX.Element => 
                 <svg width="80" height="80">
                     <circle
                         className="text-gray-300"
-                        stroke-width="5"
+                        strokeWidth="5"
                         stroke="currentColor"
                         fill="transparent"
                         r="30"
@@ -20,9 +20,9 @@ const CircularProgress: React.FC<Props> = ({ progressPercent }): JSX.Element => 
                     />
                     <circle
                         className="text-blue-600"
-                        stroke-width="5"
-                        stroke-dasharray="188"
-                        stroke-dashoffset={188 - progressPercent * 188} stroke-linecap="round"
+                        strokeWidth="5"
+                        strokeDasharray="188"
+                        strokeDashoffset={188 - progressPercent * 188} strokeLinecap="round"
                         stroke="currentColor"
                         fill="transparent"
                         r="30"
