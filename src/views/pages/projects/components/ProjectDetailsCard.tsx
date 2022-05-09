@@ -2,6 +2,7 @@ import React from 'react';
 import Moment from 'moment';
 import moneyFormat from "../../../common/utils/moneyFormat";
 import {Link} from "react-router-dom";
+import imageLink from "../../../common/utils/imageLink";
 
 
 
@@ -16,8 +17,7 @@ const ProjectDetailsCard: React.FC<any> = ({project}): JSX.Element => {
               <article className="md:gap-8 md:grid md:grid-cols-3">
                   <div>
                       <div className="flex items-center mb-6 space-x-4">
-                          <img className="w-10 h-10 rounded-full" src={project.owner.profile_picture}
-                               alt={project.owner.first_name}/>
+                          <img className="w-10 h-10 rounded-full" src={imageLink(project.owner.profile_picture )}/>
                               <div className="space-y-1 font-medium dark:text-white">
                                   <p>{project.owner?.first_name + " " + project.owner?.last_name}</p>
                               </div>

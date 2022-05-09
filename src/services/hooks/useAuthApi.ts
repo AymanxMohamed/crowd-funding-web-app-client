@@ -19,17 +19,10 @@ const useAuthApi = () => {
 
     const register = async (values: any) => {
         const formData = new FormData();
-        formData.append("email", values.email);
-        formData.append("password", values.password);
-        formData.append("first_name", values.first_name);
-        formData.append("last_name", values.last_name);
-        formData.append("phone_number", values.phone_number);
-        if (values.picture)
-            formData.append(
-                "picture",
-                values.picture,
-                values.picture.name
-            );
+
+        for (let key in values)
+            if (values[key]) formData.append(key, values[key]);
+
         try {
             const response = await axiosClient.post("users/register", formData);
             return response.data;

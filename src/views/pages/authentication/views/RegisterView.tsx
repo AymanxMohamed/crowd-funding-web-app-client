@@ -21,7 +21,7 @@ const RegisterView: React.FC = (): JSX.Element => {
         success: "Account Created Successfully",
         error: "Error ocuured",
       });
-      navigate("/auth/login");
+      //navigate("/auth/login");
     } catch (err: any) {
       for (let key in err) {
         toast.error(err[key][0]);
