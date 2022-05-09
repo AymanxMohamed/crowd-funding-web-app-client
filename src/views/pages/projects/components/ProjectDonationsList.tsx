@@ -1,5 +1,6 @@
 import React from 'react';
 import Moment from 'moment';
+import imageLink from "../../../common/utils/imageLink";
 
 
 type Props = {
@@ -18,11 +19,11 @@ const ProjectDonationsList: React.FC<Props> = ({donations}): JSX.Element => {
                   <li className="py-3 sm:py-4" key={index}>
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src={donation.owner?.profile_picture}/>
+                        <img className="w-8 h-8 rounded-full" src={imageLink(donation.author_picture)}/>
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                          Doner Name
+                            {donation.author_name}
                         </p>
                         <p className="text-sm text-gray-500 truncate dark:text-gray-400">
                           {donation.message} - {Moment(donation.created_at).format('d MMM YYYY')}

@@ -9,6 +9,7 @@ import useProjectsApi from "../../../services/hooks/useProjectsApi";
 import {Carousel} from "react-responsive-carousel";
 import {MEDIA_URL} from "../../../app/config";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Loading from "../../common/SharedComponents/Loading";
 
 const ViewProject: React.FC = (): JSX.Element => {
   const {id} = useParams()
@@ -25,7 +26,7 @@ const ViewProject: React.FC = (): JSX.Element => {
   },[id])
 
   if(!loaded)
-    return <h4>Not Loaded</h4>
+    return <Loading/>
   return (
       <div className="bg-white">
           {/* Image gallery */}

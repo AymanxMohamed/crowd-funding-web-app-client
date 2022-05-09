@@ -14,7 +14,7 @@ const useProjectsApi = () => {
   };
 
   const getProject = async (id: number) => {
-    const response = await axiosClient.get("users/projects/" + id);
+    const response = await axiosClient.get("projects/" + id);
     return response.data;
   };
 
@@ -44,6 +44,10 @@ const useProjectsApi = () => {
   const getCategories = async () => {
     const response = await axiosClient.get("categories");
     return response.data;
+  }
+  const addComment = async () => {
+    return  await axiosClient.post("comments/create");
+
   }
 
   const getTags = async () => {
