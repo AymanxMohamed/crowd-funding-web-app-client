@@ -7,6 +7,14 @@ const useProjectsApi = () => {
     const response = await axiosClient.get("projects");
     return response.data;
   };
+  const getFeaturedProjects = async () => {
+    const response = await axiosClient.get("projects/featured");
+    return response.data;
+  };
+  const getLatestProjects = async () => {
+    const response = await axiosClient.get("projects/latest");
+    return response.data;
+  };
 
   const getUserProjects = async (id: number) => {
     const response = await axiosClient.get(`users/${id}/projects`);
@@ -62,6 +70,8 @@ const useProjectsApi = () => {
     getCategories,
     getTags,
     postProject,
+    getFeaturedProjects,
+    getLatestProjects,
   };
 };
 

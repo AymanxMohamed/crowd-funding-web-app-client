@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Modal from '../utils/Modal';
 
 import {Link} from "react-router-dom";
 import moneyFormat from "../../../common/utils/moneyFormat";
+import useAuth from "../../../../services/hooks/useAuthSlice";
+import {Carousel} from "react-responsive-carousel";
+import {MEDIA_URL} from "../../../../app/config";
+import useProjectsApi from "../../../../services/hooks/useProjectsApi";
+import Loading from "../../../common/SharedComponents/Loading";
+import imageLink from "../../../common/utils/imageLink";
 
 const HeroHome: React.FC = (): JSX.Element => {
 
-  const projects = [
-    {title:"Project 1",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(13).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title:"Project 2",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(14).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title:"Project 3",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"}
-  ]
+  const { user } = useAuth();
+  const [ready, setReady] = useState(false);
+  const [projects, setProjects] = useState([]);
+
+  const projectsApi = useProjectsApi();
+
+  useEffect(() => {
+    projectsApi.getLatestProjects().then((projects) => {
+      setProjects(projects);
+      setReady(true)
+    });
+  }, []);
+  if(!ready)
+    return <Loading/>
   return (
     <section className="relative">
 
@@ -58,66 +73,14 @@ const HeroHome: React.FC = (): JSX.Element => {
 
           {/* Hero image */}
           <div>
-            <div id="carouselExampleCaptions" className="carousel slide carousel-fade relative" data-bs-ride="carousel">
-              <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-                <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="0"
-                    className="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                ></button>
-                <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                ></button>
-                <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                ></button>
-              </div>
-              <div className="carousel-inner relative w-full overflow-hidden">
-
-                  {projects.map((project,key) =>
-                      <div className={key === 1? "carousel-item active relative float-left w-full":"carousel-item relative float-left w-full"} key={key}>
-                        <img
-                            src={project.image}
-                            className="block w-full"
-                            alt="..."
-                        />
-                        <div className="carousel-caption hidden md:block absolute text-center">
-                          <h3 className="text-xl">{project.title}</h3>
-                          <h5 className="text-xl">{moneyFormat(project.raised)}</h5>
-                          <p>{project.description}</p>
-                        </div>
-                      </div>
-                  )}
-
-              </div>
-              <button
-                  className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide="prev"
-              >
-                <span className="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button
-                  className="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide="next"
-              >
-                <span className="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-              </button>
-            </div>
+            <Carousel autoPlay={true} showStatus={false} dynamicHeight={true} transitionTime={1200} showThumbs={false}>
+              {projects.map((project: any,key:number)=>
+                  <div key={key}>
+                    <img src={imageLink(project.images[0]) } />
+                    <p className="legend">{project.title}</p>
+                  </div>
+              )}
+            </Carousel>
           </div>
 
         </div>

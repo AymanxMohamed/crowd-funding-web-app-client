@@ -1,15 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import moneyFormat from "../../../common/utils/moneyFormat";
+import {useNavigate} from "react-router-dom";
+import useProjectsApi from "../../../../services/hooks/useProjectsApi";
+import Loading from "../../../common/SharedComponents/Loading";
+import imageLink from "../../../common/utils/imageLink";
 
 const LatestFeatured: React.FC = (): JSX.Element => {
-    const projects = [
-        {title:"Project 1",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(13).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-        {title:"Project 2",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(14).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-        {title:"Project 2",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(14).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-        {title:"Project 2",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(14).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-        {title:"Project 3",image:"https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg",raised:4000,description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"}
-    ]
-  return (
+    const [ready, setReady] = useState(false);
+    const [projects, setProjects] = useState([]);
+
+    const projectsApi = useProjectsApi();
+
+    useEffect(() => {
+        projectsApi.getFeaturedProjects().then((projects) => {
+            console.log("a7a yasta")
+            setProjects(projects);
+            setReady(true)
+        });
+    }, []);
+    if(!ready)
+        return <Loading/>
+    else
+        return (
     <section className="relative" id="featured">
 
       {/* Section background (needs .relative class on parent and next sibling elements) */}
@@ -27,16 +39,16 @@ const LatestFeatured: React.FC = (): JSX.Element => {
           {/* Items */}
           <div className="mx-auto flex flex-wrap gap-6 items-center w-full">
 
-              {projects.map((project,key) =>
+              {projects.map((project:any,key) =>
             <div className="relative flex flex-col items-center rounded  rounded-t-lg flex-1 " key={key}>
                     <div className="rounded-lg shadow-lg bg-white max-w-sm">
                         <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                            <img className="rounded-t-lg" src={project.image}
+                            <img className="rounded-t-lg" src={imageLink(project.images[0])}
                                  alt=""/>
                         </a>
                         <div className="p-6 flex justify-between flex place-items-center">
                             <h5 className="text-gray-900 text-xl font-medium mb-2 whitespace-nowrap">{project.title}</h5>
-                            <span className="text-2xl inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-600 text-white rounded-full">{moneyFormat(project.raised)}</span>
+                            <span className="text-2xl inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-600 text-white rounded-full">{moneyFormat(project.total_donations)} / {moneyFormat(project.total_target)}</span>
                         </div>
                     </div>
                 </div>
