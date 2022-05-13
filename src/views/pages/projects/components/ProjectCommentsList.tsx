@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Moment from 'moment';
 import imageLink from "../../../common/utils/imageLink";
 import CommentForm from "./CommentForm";
 
 
 type Props = {
-  comments: {}[]
+    comments: {}[],
+    project_id: number
 }
-const ProjectCommentsList: React.FC<Props> = ({comments}): JSX.Element => {
+const ProjectCommentsList: React.FC<Props> = ({project_id,comments}): JSX.Element => {
+    const [myComments,setMyComments] = useState(comments.reverse())
+    function addComment(comment:any){
+        setMyComments([comment,...myComments])
+    }
   return (
       <>
         <div className="w-100 p-4 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700 text-left">
@@ -15,9 +20,9 @@ const ProjectCommentsList: React.FC<Props> = ({comments}): JSX.Element => {
             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Comments</h5>
           </div>
           <div className="flow-root">
-              <CommentForm/>
+              <CommentForm project_id={project_id} commentAdded={addComment}/>
             <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-              {comments.map((comment:any,index)=>
+              {myComments.map((comment:any,index)=>
                   <li className="py-3 sm:py-4" key={index}>
                       <article>
                           <div className="flex items-center mb-4 space-x-4">

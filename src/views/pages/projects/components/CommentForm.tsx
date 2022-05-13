@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
+import useProjectsApi from "../../../../services/hooks/useProjectsApi";
 
-const CommentForm: React.FC<any> = (): JSX.Element => {
+const CommentForm: React.FC<any> = ({project_id,commentAdded}): JSX.Element => {
   const [comment, setComment] = useState("")
+  const projectsApi = useProjectsApi();
   const handleSubmit = (event:any)=> {
     event.preventDefault()
-    console.log(comment)
+    projectsApi.addComment(project_id,comment).then((response)=>{
+      commentAdded(response.data)
+    })
   }
   return (
       <form onSubmit={handleSubmit}>

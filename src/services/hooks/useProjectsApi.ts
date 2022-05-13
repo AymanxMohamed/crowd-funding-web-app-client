@@ -53,10 +53,13 @@ const useProjectsApi = () => {
     const response = await axiosClient.get("categories");
     return response.data;
   }
-  const addComment = async () => {
-    return  await axiosClient.post("comments/create");
-  }
 
+  const addComment = async (project:string,content:string) => {
+      const formData = new FormData();
+      formData.append('project',project)
+      formData.append('content',content)
+      return  await axiosClient.post("comments/create", formData);
+  }
   const getTags = async () => {
     const response = await axiosClient.get("tags");
     return response.data;
@@ -71,6 +74,7 @@ const useProjectsApi = () => {
     postProject,
     getFeaturedProjects,
     getLatestProjects,
+    addComment
   };
 };
 

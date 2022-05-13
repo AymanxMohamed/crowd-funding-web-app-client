@@ -98,7 +98,7 @@ const ViewProject: React.FC = (): JSX.Element => {
               </div>
               <div className="tab-pane fade" id="tabs-profileJustify" role="tabpanel"
                    aria-labelledby="tabs-profile-tabJustify">
-                <ProjectCommentsList comments={project.comments}/>
+                <ProjectCommentsList project_id={project.id} comments={project.comments}/>
               </div>
               <div className="tab-pane fade" id="tabs-messagesJustify" role="tabpanel"
                    aria-labelledby="tabs-profile-tabJustify">
