@@ -8,6 +8,7 @@ import ProjectsRoute from "./public/ProjectsRoute";
 import AuthRoute from "./public/AuthRoute";
 import AccountRoute from "./private/AccountRoute";
 import MyProjectsRoute from "././private/MyProjectsRoute"
+import MyDonations from "../views/pages/account/MyDonations";
 
 const Routes2: React.FC = (): JSX.Element => {
   const location = useLocation();
@@ -22,6 +23,7 @@ const Routes2: React.FC = (): JSX.Element => {
         <Route element={<RequireAuth />}>
           <Route path="profile/*" element={<AccountRoute />} />
           <Route path="my-projects/*" element={<MyProjectsRoute />} />
+          <Route path="my-donations" element={<MyDonations />} />
         </Route>
 
       </Route>

@@ -20,6 +20,10 @@ const useProjectsApi = () => {
     const response = await axiosClient.get(`projects/myprojects`);
     return response.data;
   };
+  const getMyDonations = async () => {
+    const response = await axiosClient.get(`donations/`);
+    return response.data;
+  };
 
   const getProject = async (id: number) => {
     const response = await axiosClient.get("projects/" + id);
@@ -74,7 +78,8 @@ const useProjectsApi = () => {
     postProject,
     getFeaturedProjects,
     getLatestProjects,
-    addComment
+    addComment,
+    getMyDonations
   };
 };
 

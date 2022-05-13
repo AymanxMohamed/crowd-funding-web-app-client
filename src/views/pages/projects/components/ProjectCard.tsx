@@ -2,6 +2,7 @@ import React from 'react';
 import CircularProgress from '../../../common/SharedComponents/CircularProgress';
 import moneyFormat from '../../../common/utils/moneyFormat';
 import {Link} from "react-router-dom";
+import imageLink from "../../../common/utils/imageLink";
 
 interface projectCardProps {
   projectData: {
@@ -25,7 +26,7 @@ const ProjectCard: React.FC<projectCardProps> = ({ projectData, projectUrl, acti
     <Link to={"/projects/" + projectData.id} className="p-1">
       <div
         className="app-image-card m-auto rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 hover:cursor-pointer hover:scale-98"
-        style={{ backgroundImage: "url(https://elementor.zozothemes.com/lendiz/wp-content/uploads/sites/33/2020/01/pro-3-1-527x694.jpg)" }}>
+        style={{ backgroundImage: 'url(' + imageLink(projectData.images[0]) + ')' }}>
         <div className="app-image-card-back"></div>
         <div className="p-1 app-image-card-content">
           <h5 className="mb-2 px-3 text-lg font-bold tracking-tight text-white">
