@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 import { DateRange } from 'react-date-range';
 import Multiselect from 'multiselect-react-dropdown';
@@ -13,6 +13,11 @@ const CreateProject: React.FC = (): JSX.Element => {
   const user = useAppSelector(state => state.auth.user);
 
   const [activeStep, setActiveStep] = useState(0);
+  const [formData, setFormData] = useState({
+    title: "", details: "", category: "",
+    start_date: "", end_date: "",
+    target: ""
+  });
   const [categories, setCategories] = useState([]);
   const [selectionRange, setSelectionRange] = useState({
     startDate: new Date(),
@@ -21,7 +26,7 @@ const CreateProject: React.FC = (): JSX.Element => {
   });
   const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState({} as any);
 
   const projectsApi = useProjectsApi();
 
@@ -75,7 +80,7 @@ const CreateProject: React.FC = (): JSX.Element => {
               navigate("/projects/" + data.createdProject.id);
             } else if (data.success === false) {
               console.log("Errors", data.errors);
-              toast.error("Data is not valid!");
+              toast.error("Data is not valid! Please review your inputs.");
               setFormErrors(data.errors);
             }
           }
@@ -84,7 +89,21 @@ const CreateProject: React.FC = (): JSX.Element => {
   }
 
   const validateCurrentStep = () => {
-    // TODO
+    if (activeStep === 0) {
+      if (formData.title || formData.details || formData.category) {
+        return true;
+      } else {
+        toast.error("Project title, description and category are required!");
+        return false;
+      }
+    } else if (activeStep === 1) {
+      if (formData.target || formData.start_date || formData.end_date) {
+        return true;
+      } else {
+        toast.error("Project target, start data and end date are required!");
+        return false;
+      }
+    }
     return true;
   }
 
@@ -125,8 +144,10 @@ const CreateProject: React.FC = (): JSX.Element => {
                 <form onSubmit={handleSubmit} className="max-w-screen-md mx-auto" encType="multipart/form-data">
                   <div>
                     <input type="text" name="owner" value={user?.id} hidden readOnly />
-                    <input type="text" name="start_date" value={selectionRange.startDate.toLocaleDateString('en-CA')} hidden readOnly />
-                    <input type="text" name="end_date" value={selectionRange.endDate.toLocaleDateString('en-CA')} hidden readOnly />
+                    <input type="text" name="start_date" value={selectionRange.startDate.toLocaleDateString('en-CA')}
+                      onChange={(e) => { setFormData({ ...formData, start_date: e.target.value }) }} hidden />
+                    <input type="text" name="end_date" value={selectionRange.endDate.toLocaleDateString('en-CA')}
+                      onChange={(e) => { setFormData({ ...formData, end_date: e.target.value }) }} hidden />
 
                     {/* [START] Step 1 */}
                     <div hidden={activeStep !== 0}>
@@ -139,7 +160,9 @@ const CreateProject: React.FC = (): JSX.Element => {
                           type="text"
                           placeholder="Project title"
                           className="w-full px-3 py-2 text-gray-800 border rounded outline-none bg-gray-50 focus:ring ring-indigo-300"
+                          onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }}
                         />
+                        <p className="text-red-700">{formErrors.title}</p>
                       </div>
 
                       <div className="flex flex-col mb-4">
@@ -151,14 +174,18 @@ const CreateProject: React.FC = (): JSX.Element => {
                           name="details"
                           placeholder="Project description and details"
                           className="w-full px-3 py-2 text-gray-800 border rounded outline-none bg-gray-50 focus:ring ring-indigo-300"
+                          onChange={(e) => { setFormData({ ...formData, details: e.target.value }) }}
                         />
+                        <p className="text-red-700">{formErrors.details}</p>
                       </div>
 
                       <div className="flex flex-col mb-2">
                         <label htmlFor="company" className="inline-flex mb-2 text-sm text-gray-800">
                           Project Category
                         </label>
-                        <select name="category" className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                        <select
+                          onChange={(e) => { setFormData({ ...formData, category: e.target.value }) }}
+                          name="category" className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                           <option disabled>Select a category</option>
                           {categories.map((category: any, index) =>
                             <option key={`cat-no-${index}`} value={category.id}>{category.name}</option>
@@ -179,7 +206,9 @@ const CreateProject: React.FC = (): JSX.Element => {
                           type="number"
                           name="total_target"
                           className="w-full px-3 py-2 text-gray-800 rounded outline-none bg-gray-50 focus:ring ring-indigo-300"
+                          onChange={(e) => { setFormData({ ...formData, target: e.target.value }) }}
                         />
+                        <p className="text-red-700">{formErrors.total_target}</p>
                       </div>
 
                       <div className="md:w-1/2 flex flex-col mb-4 mx-auto">
