@@ -1,6 +1,7 @@
 import React from 'react';
 import CircularProgress from '../../../common/SharedComponents/CircularProgress';
 import moneyFormat from '../../../common/utils/moneyFormat';
+import {Link} from "react-router-dom";
 
 interface projectCardProps {
   projectData: {
@@ -21,33 +22,28 @@ const ProjectCard: React.FC<projectCardProps> = ({ projectData, projectUrl, acti
   let donationPercent = projectData.total_donations / projectData.total_target;
   
   return (
-    <div className="p-1">
+    <Link to={"/projects/" + projectData.id} className="p-1">
       <div
-        className="app-image-card m-auto max-w-xs rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+        className="app-image-card m-auto rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 hover:cursor-pointer hover:scale-98"
         style={{ backgroundImage: "url(https://elementor.zozothemes.com/lendiz/wp-content/uploads/sites/33/2020/01/pro-3-1-527x694.jpg)" }}>
         <div className="app-image-card-back"></div>
         <div className="p-1 app-image-card-content">
-          <a href="#">
-            <h5 className="mb-2 px-3 text-lg font-bold tracking-tight text-white">
-              { projectData.title }
-            </h5>
-          </a>
+          <h5 className="mb-2 px-3 text-lg font-bold tracking-tight text-white">
+            { projectData.title }
+          </h5>
           <p className="mb-3 px-3 text-sm font-normal text-slate-300">
             { projectData.details }
           </p>
-          <div className="grid grid-cols-3 content-center">
+          <div className="flex flex-row">
             <CircularProgress progressPercent={donationPercent} />
             <div className="text-white m-auto">
               <div>TARGET</div>
               <div>{ moneyFormat(projectData.total_target) }</div>
             </div>
-            <a href={projectUrl} className="m-auto text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-2.5 text-center">
-              { actionButton }
-            </a>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

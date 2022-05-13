@@ -14,7 +14,8 @@ const authSlice = createSlice({
       state.tokens = action.payload;
     },
     setUser(state, action: PayloadAction<User>) {
-      state.user = action.payload;
+      if(action.payload.email)
+        state.user = action.payload;
     },
     logout(state) {
       state.tokens = undefined;

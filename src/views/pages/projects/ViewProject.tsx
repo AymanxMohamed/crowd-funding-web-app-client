@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import CircularProgress from "../../common/SharedComponents/CircularProgress";
 import ProjectDonationsList from "./components/ProjectDonationsList";
 import ProjectCommentsList from "./components/ProjectCommentsList";
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import ProjectDetailsCard from "./components/ProjectDetailsCard";
 import {useAppSelector} from "../../../app/hooks";
 import useProjectsApi from "../../../services/hooks/useProjectsApi";
@@ -10,11 +10,13 @@ import {Carousel} from "react-responsive-carousel";
 import {MEDIA_URL} from "../../../app/config";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Loading from "../../common/SharedComponents/Loading";
+import { toast } from "react-toastify";
 
 const ViewProject: React.FC = (): JSX.Element => {
   const {id} = useParams()
   const [project, setProject] = useState({} as any)
-  const [loaded,setLoaded] = useState(false)
+  const [loaded,setLoaded] = useState(false);
+  const navigate = useNavigate();
   const projectAPI = useProjectsApi();
   useEffect(()=>{
     // @ts-ignore
@@ -22,7 +24,10 @@ const ViewProject: React.FC = (): JSX.Element => {
           setProject(data);
           setLoaded(true);
         }
-    );
+    ).catch(()=>{
+        toast('Project Not Found',{type:'error'});
+        navigate("/projects")
+    });
   },[id])
 
   if(!loaded)

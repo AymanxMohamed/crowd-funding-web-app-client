@@ -1,12 +1,8 @@
 import React from 'react';
-import Header from "../homepage/components/Header";
-import { Link } from "react-router-dom";
 
 const ResetPassword: React.FC = (): JSX.Element => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      {/*  Site header */}
-      <Header/>
       {/*  Page content */}
       <main className="flex-grow">
 

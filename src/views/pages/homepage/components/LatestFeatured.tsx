@@ -13,7 +13,6 @@ const LatestFeatured: React.FC = (): JSX.Element => {
 
     useEffect(() => {
         projectsApi.getFeaturedProjects().then((projects) => {
-            console.log("a7a yasta")
             setProjects(projects);
             setReady(true)
         });

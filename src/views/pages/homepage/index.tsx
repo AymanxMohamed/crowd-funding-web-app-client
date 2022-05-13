@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/Header';
 import HeroHome from './components/HeroHome';
 import FeaturesHome from './components/Categories';
 import LatestFeatured from './components/LatestFeatured';
