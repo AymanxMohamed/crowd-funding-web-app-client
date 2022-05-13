@@ -64,8 +64,8 @@ const HeroHome: React.FC = (): JSX.Element => {
                   data-aos-delay="300">
                 <div>
                   <Link className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                        to="campaign/new">
-                    Start a Campaign</Link>
+                        to={"/my-projects/new"}>
+                    Start a Project</Link>
                 </div>
               </div>
             </div>

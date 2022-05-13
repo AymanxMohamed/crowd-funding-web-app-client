@@ -72,7 +72,7 @@ const CreateProject: React.FC = (): JSX.Element => {
         .then((data) => {
           if (data) {
             if (data.success === true) {
-              navigate("/my-projects/" + data.createdProject.id);
+              navigate("/projects/" + data.createdProject.id);
             } else if (data.success === false) {
               console.log("Errors", data.errors);
               toast.error("Data is not valid!");
