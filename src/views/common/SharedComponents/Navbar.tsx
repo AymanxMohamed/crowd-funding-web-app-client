@@ -18,7 +18,7 @@ const navigation = [
 ]
 const userNavigations = [
     { name: 'My Projects', to: '/my-projects' },
-    { name: 'My Donations', to: '/donations' },
+    { name: 'My Donations', to: '/my-donations' },
     { name: 'Settings', to: '/profile/settings' },
 ]
 const visitorNavigation = [
