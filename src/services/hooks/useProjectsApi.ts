@@ -29,6 +29,10 @@ const useProjectsApi = () => {
     const response = await axiosClient.get("projects/" + id);
     return response.data;
   };
+  const searchProjects = async (keyword:string) => {
+    const response = await axiosClient.get("projects/search/" + keyword);
+    return response.data;
+  };
 
   const postProject = async (formData: any) => {
     try {
@@ -79,7 +83,8 @@ const useProjectsApi = () => {
     getFeaturedProjects,
     getLatestProjects,
     addComment,
-    getMyDonations
+    getMyDonations,
+    searchProjects
   };
 };
 

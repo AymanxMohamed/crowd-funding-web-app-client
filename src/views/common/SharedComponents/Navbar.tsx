@@ -2,7 +2,7 @@ import {Fragment, useState} from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 import { useAppDispatch } from "../../../app/hooks";
 import useAuthSlice from "../../../services/hooks/useAuthSlice";
 import { logout } from "../../../services/reducers/auth";
@@ -32,9 +32,11 @@ export default function Navbar() {
     const logoutHandler = () => {
         dispatch(logout());
     };
+    const navigate = useNavigate()
     function handleSearch(e:any){
         e.preventDefault()
-        console.log(e)
+        if(search)
+            navigate('projects/search/' + search)
     }
     const authNavigation = user ? userNavigations : visitorNavigation;
     return (

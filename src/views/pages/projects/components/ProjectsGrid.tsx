@@ -5,12 +5,13 @@ import ProjectCard from "./ProjectCard";
 
 const ProjectsGrid: React.FC<any> = ({title,projects}): JSX.Element => {
 
-    return (
+    return  (
         <div className="block p-6 text-left w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
             <h5 className="mb-2 self-start text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
           <hr/>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 place-content-evenly">
-                {projects.map((project: any) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 place-content-evenly mt-8">
+
+                {projects.length > 0 && projects.map((project: any) => (
                     <ProjectCard
                         key={project.id}
                         projectData={project}
@@ -18,6 +19,7 @@ const ProjectsGrid: React.FC<any> = ({title,projects}): JSX.Element => {
                         actionButton="DONATE"
                     />
                 ))}
+                {projects.length === 0 && <h2 className="text-center col-span-full text-xl">No Projects Found</h2>}
             </div>
         </div>
 
