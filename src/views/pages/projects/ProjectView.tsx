@@ -14,6 +14,7 @@ import {toast} from "react-toastify";
 import Loading from "../../common/SharedComponents/Loading";
 import DonateModal from "./components/DonateModal";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import moneyFormat from "../../common/utils/moneyFormat";
 
 
 const ProjectView: React.FC<any> = (): JSX.Element => {
@@ -79,6 +80,22 @@ const ProjectView: React.FC<any> = (): JSX.Element => {
                     Ends: {moment(project.end_date).format("DD MMM YYYY")}
                   </p>
                   <p>{project.details}</p>
+                  <div className="mt-8 overflow-hidden">
+                    <dl className="-mx-8 -mt-8 flex flex-wrap">
+                      <div className="flex flex-col px-8 pt-8">
+                        <dt className="order-2 text-base font-medium text-gray-500">Raised</dt>
+                        <dd className="order-1 text-2xl font-extrabold text-indigo-600 sm:text-3xl">{moneyFormat(project.total_donations)}</dd>
+                      </div>
+                      <div className="flex flex-col px-8 pt-8">
+                        <dt className="order-2 text-base font-medium text-gray-500">Target</dt>
+                        <dd className="order-1 text-2xl font-extrabold text-indigo-600 sm:text-3xl">{moneyFormat(project.total_target)}</dd>
+                      </div>
+                      <div className="flex flex-col px-8 pt-8">
+                        <dt className="order-2 text-base font-medium text-gray-500">Progress</dt>
+                        <dd className="order-1 text-2xl font-extrabold text-indigo-600 sm:text-3xl">{Math.round((project.total_donations / project.total_target) * 100)}%</dd>
+                      </div>
+                    </dl>
+                  </div>
                 </div>
 
                 <div>

@@ -7,14 +7,12 @@ import {useNavigate} from "react-router-dom";
 
 const DonateModal: React.FC<any> = ({isOpen, onClose,project_id}): JSX.Element => {
     const cancelButtonRef = useRef(null)
-    const navigate = useNavigate()
     const [message, setMessage] = useState('');
     const [amount, setAmount] = useState(10);
     const projectsApi = useProjectsApi();
     function makeDonation(){
         projectsApi.makeDonation(project_id,message,amount).then((response)=>{
             toast('Thank You For Your Donation 😍🥺🥺🥺',{type:'success'});
-            navigate('/projects/' + project_id)
         })
         onClose()
     }

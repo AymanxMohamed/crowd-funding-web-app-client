@@ -17,8 +17,7 @@ const Profile: React.FC = (): JSX.Element => {
     const submitHandler = async (values: any, {setSubmitting}: any) => {
         try {
             let response = await update(values);
-
-            // navigate("/home");
+            navigate("/home");
         } catch (err: any) {
             console.log(err)
         }
@@ -53,7 +52,6 @@ const Profile: React.FC = (): JSX.Element => {
                                         <ProfileInput name="first_name" label="First Name" type="text"></ProfileInput>
                                         <ProfileInput name="last_name" label="Last Name" type="text"></ProfileInput>
                                     </div>
-                                    <ProfileInput name="email" label="Email Address" type="email"></ProfileInput>
                                     <ProfileInput name="phone_number" label="Phone Number" type="tel"></ProfileInput>
                                     <ProfileInput name="password" label="Password" type="password"></ProfileInput>
                                     <ProfileInput
