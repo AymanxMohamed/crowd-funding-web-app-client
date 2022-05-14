@@ -11,6 +11,7 @@ import {MEDIA_URL} from "../../../app/config";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Loading from "../../common/SharedComponents/Loading";
 import { toast } from "react-toastify";
+import ProjectHeader from "./components/ProjectHeader";
 
 const ViewProject: React.FC = (): JSX.Element => {
   const {id} = useParams()
@@ -36,14 +37,7 @@ const ViewProject: React.FC = (): JSX.Element => {
       <div className="bg-white">
           {/* Image gallery */}
           <div className="mx-auto">
-              <Carousel autoPlay={true} showStatus={false} dynamicHeight={true} transitionTime={2000}>
-                  {project.images.map((image: any,key:number)=>
-                      <div key={key}>
-                          <img src={MEDIA_URL + image.image_name} />
-                          <p className="legend">{project.title}</p>
-                      </div>
-                  )}
-              </Carousel>
+              <ProjectHeader project={project}/>
           </div>
         <div className="border-t mt-8">
             <ul className="nav nav-tabs nav-justified flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"

@@ -136,6 +136,8 @@ module.exports ={
   plugins: [
     require('@tailwindcss/forms'),
     require('tw-elements/dist/plugin'),
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };
