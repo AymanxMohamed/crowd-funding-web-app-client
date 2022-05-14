@@ -20,7 +20,7 @@ function Modal({
     };
     document.addEventListener('click', clickHandler);
     return () => document.removeEventListener('click', clickHandler);
-  });  
+  });
 
   // close the modal if the esc key is pressed
   useEffect(() => {
@@ -31,11 +31,11 @@ function Modal({
     document.addEventListener('keydown', keyHandler);
 
     return () => document.removeEventListener('keydown', keyHandler);
-  });  
+  });
 
   return (
     <>
-      {/* Modal backdrop */}
+      {/* DonateModal backdrop */}
       <Transition
         className="fixed inset-0 z-50 bg-white bg-opacity-75 transition-opacity backdrop-blur-sm"
         show={show}
@@ -48,7 +48,7 @@ function Modal({
         aria-hidden="true"
       />
 
-      {/* Modal dialog */}
+      {/* DonateModal dialog */}
       <Transition
         id={id}
         className="fixed inset-0 z-50 overflow-hidden flex items-center justify-center transform px-4 sm:px-6"
@@ -63,10 +63,10 @@ function Modal({
         leaveStart="opacity-100 scale-100"
         leaveEnd="opacity-0 scale-95"
       >
-        <div className="bg-white overflow-auto max-w-6xl w-full max-h-full" ref={modalContent}>          
+        <div className="bg-white overflow-auto max-w-6xl w-full max-h-full" ref={modalContent}>
           {children}
         </div>
-      </Transition>    
+      </Transition>
     </>
   );
 }

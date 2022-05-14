@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import Moment from 'moment';
 import imageLink from "../../../common/utils/imageLink";
 import CommentForm from "./CommentForm";
+import classNames from "../../../common/utils/classNames";
 
 
 type Props = {
@@ -21,28 +21,22 @@ const ProjectCommentsList: React.FC<Props> = ({project_id,comments}): JSX.Elemen
           </div>
           <div className="flow-root">
               <CommentForm project_id={project_id} commentAdded={addComment}/>
-            <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-              {myComments.map((comment:any,index)=>
-                  <li className="py-3 sm:py-4" key={index}>
-                      <article>
-                          <div className="flex items-center mb-4 space-x-4">
-                              <img className="w-10 h-10 rounded-full" src={imageLink(comment.author_picture)}
-                                   alt=""/>
-                                  <div className="space-y-1 font-medium dark:text-white">
-                                      <p>{comment.author_name} </p>
-                                      <p className="block text-sm text-gray-500 dark:text-gray-400">{Moment(comment.created_at).format('d MMM YYYY')} </p>
-                                  </div>
-                          </div>
+              {myComments.map((comment:any, index) => (
+                  <div key={index} className="flex text-sm text-gray-500 space-x-4 w-full">
+                      <div className="flex-none py-10">
+                          <img src={imageLink(comment.author_picture)} alt="" className="w-10 h-10 bg-gray-100 rounded-full" />
+                      </div>
+                      <div className={classNames(index === 0 ? '' : 'border-t border-gray-200', 'py-10 w-full')}>
+                          <h3 className="font-medium text-gray-900 text-xl">{comment.author_name}</h3>
+                          <p><time dateTime={comment.datetime}>{comment.date}</time></p>
+                          <p className="mt-4 prose prose-sm max-w-none text-gray-500 text-xl">
+                              {comment.content}
+                          </p>
 
-                          <p className="mb-2 font-light text-gray-500 dark:text-gray-400">{comment.content}</p>
-
-                      </article>
-
-                  </li>
-              )}
-
-            </ul>
-          </div>
+                      </div>
+                  </div>
+              ))}
+              </div>
         </div>
 
       </>

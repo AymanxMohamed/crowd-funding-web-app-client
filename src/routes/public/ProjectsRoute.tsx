@@ -2,9 +2,9 @@ import { Navigate, useLocation, useRoutes } from "react-router-dom";
 import React from "react";
 import AllProjects from "../../views/pages/projects/AllProjects";
 import ProjectLayout from "../../views/pages/projects/ProjectLayout";
-import ViewProject from "../../views/pages/projects/ViewProject";
 import LatestProjects from "../../views/pages/projects/LatestProjects";
 import SearchProjects from "../../views/pages/projects/SearchProjects";
+import ProjectView from "../../views/pages/projects/ProjectView";
 
 export default function ProjectsRoute() {
   const location = useLocation();
@@ -14,7 +14,7 @@ export default function ProjectsRoute() {
       element: <ProjectLayout />,
       children: [
         { path: "all", element: <AllProjects /> },
-        { path: ":id", element: <ViewProject /> },
+        { path: ":id", element: <ProjectView /> },
         { path: "search/:keyword", element: <SearchProjects /> },
         { path: "latest", element: <LatestProjects /> },
         {

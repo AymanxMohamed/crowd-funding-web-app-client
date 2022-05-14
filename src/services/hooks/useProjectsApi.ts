@@ -68,6 +68,13 @@ const useProjectsApi = () => {
       formData.append('content',content)
       return  await axiosClient.post("comments/create", formData);
   }
+  const makeDonation = async (project:string,message:string,amount:number) => {
+      const formData = new FormData();
+      formData.append('project',project)
+      formData.append('message',message)
+      formData.append('amount',amount+"")
+      return  await axiosClient.post("donations/create", formData);
+  }
   const getTags = async () => {
     const response = await axiosClient.get("tags");
     return response.data;
@@ -84,7 +91,8 @@ const useProjectsApi = () => {
     getLatestProjects,
     addComment,
     getMyDonations,
-    searchProjects
+    searchProjects,
+    makeDonation
   };
 };
 

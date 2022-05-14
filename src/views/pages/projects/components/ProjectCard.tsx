@@ -21,7 +21,7 @@ interface projectCardProps {
 
 const ProjectCard: React.FC<projectCardProps> = ({ projectData, projectUrl, actionButton }): JSX.Element => {
   let donationPercent = projectData.total_donations / projectData.total_target;
-  
+
   return (
     <Link to={"/projects/" + projectData.id} className="p-1">
       <div
@@ -33,7 +33,7 @@ const ProjectCard: React.FC<projectCardProps> = ({ projectData, projectUrl, acti
             { projectData.title }
           </h5>
           <p className="mb-3 px-3 text-sm font-normal text-slate-300">
-            { projectData.details }
+            { projectData.details.substring(0,50) }
           </p>
           <div className="flex flex-row">
             <CircularProgress progressPercent={donationPercent} />

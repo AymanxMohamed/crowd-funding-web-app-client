@@ -14,7 +14,9 @@ const ProjectDonationsList: React.FC<Props> = ({donations}): JSX.Element => {
             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Donations</h5>
           </div>
           <div className="flow-root">
-            <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+              {donations.length===0 && <h2 className="text-center text-xl">No Donations Yet</h2>}
+              {donations.length>0 &&
+                <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
               {donations.map((donation:any,index)=>
                   <li className="py-3 sm:py-4" key={index}>
                     <div className="flex items-center space-x-4">
@@ -37,6 +39,7 @@ const ProjectDonationsList: React.FC<Props> = ({donations}): JSX.Element => {
               )}
 
             </ul>
+              }
           </div>
         </div>
 

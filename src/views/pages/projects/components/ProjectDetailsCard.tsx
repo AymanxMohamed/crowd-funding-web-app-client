@@ -45,7 +45,6 @@ const ProjectDetailsCard: React.FC<any> = ({project}): JSX.Element => {
                                   {project.title}
                               </h4>
                           </div>
-
                       </div>
                       <p className="mb-2 font-light text-gray-500 dark:text-gray-400">{project.details}</p>
                         <div>
