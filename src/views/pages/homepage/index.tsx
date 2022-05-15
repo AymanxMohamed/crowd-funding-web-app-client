@@ -6,6 +6,7 @@ import Feedbacks from './components/Feedbacks';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import LatestProjects from "./components/LatestProjects";
+import CategoriesList from "./components/CategoriesList";
 const HomePage: React.FC = (): JSX.Element => {
   return (
     <>
@@ -16,7 +17,7 @@ const HomePage: React.FC = (): JSX.Element => {
 
                 {/*  Page sections */}
                 <HeroHome />
-                <FeaturesHome />
+                <CategoriesList/>
                 <LatestProjects />
                 <LatestFeatured />
                 <Feedbacks />

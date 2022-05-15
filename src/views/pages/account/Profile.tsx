@@ -9,19 +9,18 @@ import ImageInput from "../authentication/components/ImageInput";
 import useAuthApi from "../../../services/hooks/useAuthApi";
 import {useNavigate} from "react-router-dom";
 import {MEDIA_URL} from "../../../app/config";
+import {toast} from "react-toastify";
 
 const Profile: React.FC = (): JSX.Element => {
     const user = useAppSelector(state => state.auth.user)
     const {update} = useAuthApi();
     const navigate = useNavigate();
-    const submitHandler = async (values: any, {setSubmitting}: any) => {
-        try {
-            let response = await update(values);
-            navigate("/home");
-        } catch (err: any) {
-            console.log(err)
-        }
-        setSubmitting(false);
+    const submitHandler = (values:any) => {
+        update(values).then(()=>{
+            toast("Your Profile Has been updated successfully",{type:"success"})
+        }).catch(()=>{
+            toast("Failed to updated your profile",{type:"error"})
+        })
     };
     return (
         <>
@@ -39,6 +38,9 @@ const Profile: React.FC = (): JSX.Element => {
                                 last_name: user?.last_name || '',
                                 email: user?.email || '',
                                 phone_number: user?.phone_number || '',
+                                birth_date: user?.birth_date || '',
+                                facebook_link: user?.facebook_link || '',
+                                country: user?.country || '',
                                 password: '',
                                 confirmPassword: '',
                                 profile_picture: '',
@@ -49,18 +51,18 @@ const Profile: React.FC = (): JSX.Element => {
                             {(formik) => (
                                 <Form>
                                     <div className="grid xl:grid-cols-2 xl:gap-6">
-                                        <ProfileInput name="first_name" label="First Name" type="text"></ProfileInput>
-                                        <ProfileInput name="last_name" label="Last Name" type="text"></ProfileInput>
+                                        <ProfileInput name="first_name" label="First Name" type="text"/>
+                                        <ProfileInput name="last_name" label="Last Name" type="text"/>
                                     </div>
-                                    <ProfileInput name="phone_number" label="Phone Number" type="tel"></ProfileInput>
-                                    <ProfileInput name="password" label="Password" type="password"></ProfileInput>
-                                    <ProfileInput
-                                        name="confirmPassword"
-                                        label="Password Confirmation"
-                                        type="password"></ProfileInput>
-                                    <ImageInput name="picture"
-                                                label="Profile Picture"
-                                                type="file"
+                                    <ProfileInput name="phone_number" label="Phone Number" type="tel"/>
+                                    <ProfileInput name="password" label="Password" type="password"/>
+                                    <ProfileInput name="confirmPassword" label="Password Confirmation" type="password"/>
+                                    <div className="grid xl:grid-cols-2 xl:gap-6">
+                                        <ProfileInput name="country" label="Country" type="text"/>
+                                        <ProfileInput name="birth_date" label="Birth Date" type="date"/>
+                                    </div>
+                                    <ProfileInput name="facebook_link" label="Facebook Profile Link" type="text"/>
+                                    <ImageInput name="picture" label="Profile Picture" type="file"
                                                 onChange={(event: any) =>
                                                     formik.setFieldValue(
                                                         "profile_picture",

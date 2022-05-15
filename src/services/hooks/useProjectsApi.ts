@@ -75,6 +75,18 @@ const useProjectsApi = () => {
       formData.append('amount',amount+"")
       return  await axiosClient.post("donations/create", formData);
   }
+  const reportProject = async (project_id:string,details:string) => {
+      const formData = new FormData();
+      formData.append('related_comment',project_id)
+      formData.append('details',details)
+      return  await axiosClient.post("reports/projects/create/", formData);
+  }
+  const reportComment = async (comment_id:string,details:string) => {
+      const formData = new FormData();
+      formData.append('related_comment',comment_id)
+      formData.append('details',details)
+      return  await axiosClient.post("reports/comments/create/", formData);
+  }
   const getTags = async () => {
     const response = await axiosClient.get("tags");
     return response.data;
@@ -92,7 +104,9 @@ const useProjectsApi = () => {
     addComment,
     getMyDonations,
     searchProjects,
-    makeDonation
+    makeDonation,
+    reportProject,
+    reportComment
   };
 };
 

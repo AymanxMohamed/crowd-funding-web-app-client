@@ -1,8 +1,6 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import { Tab } from '@headlessui/react'
-import {Carousel} from "react-responsive-carousel";
 import moment from "moment";
-import ImageLink from "../../common/utils/imageLink";
 import imageLink from "../../common/utils/imageLink";
 import Rating from "../../common/SharedComponents/Rating";
 import classNames from "../../common/utils/classNames";
@@ -13,15 +11,13 @@ import useProjectsApi from "../../../services/hooks/useProjectsApi";
 import {toast} from "react-toastify";
 import Loading from "../../common/SharedComponents/Loading";
 import DonateModal from "./components/DonateModal";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import moneyFormat from "../../common/utils/moneyFormat";
+import ImageGallery from "react-image-gallery";
 
 
 const ProjectView: React.FC<any> = (): JSX.Element => {
   const [donateOpen, setDonateOpen] = useState(false)
-  const handleImageError = (e:any) => {
-    e.currentTarget.src = imageLink("default.jpg");
-  }
+  const [imagesList, setImagesList] = useState<[{ original: string, thumbnail: string }] | []>([]);
   const {id} = useParams()
   const [project, setProject] = useState({} as any)
   const [loaded,setLoaded] = useState(false);
@@ -39,6 +35,14 @@ const ProjectView: React.FC<any> = (): JSX.Element => {
     });
   },[id])
 
+  useEffect(() => {
+    if(project.hasOwnProperty('images'))
+    project.images.map((img:any) => {
+      // @ts-ignore
+      setImagesList(list => [...list, {original: imageLink(img.image_name), thumbnail: imageLink(img.image_name)}])
+    })
+  }, [project]);
+
   if(!loaded)
     return <Loading/>
   else
@@ -50,19 +54,7 @@ const ProjectView: React.FC<any> = (): JSX.Element => {
             {/* Product image */}
             <div className="lg:row-end-1 lg:col-span-4">
               <div className=" rounded-lg justify-center overflow-hidden">
-                <CarouselProvider isPlaying={true}
-                    naturalSlideWidth={600}
-                    naturalSlideHeight={500}
-                    totalSlides={project.images.length}
-                >
-                  <Slider>
-                    {project.images.map((image: any,key:number)=>
-                        <Slide index={key} key={key}>
-                          <img src={ImageLink(image.image_name)} className="w-full" onError={handleImageError}/>
-                        </Slide>
-                    )}
-                  </Slider>
-                </CarouselProvider>
+                <ImageGallery items={imagesList} showFullscreenButton={false} autoPlay={true} showPlayButton={false}/>
 
               </div>
             </div>

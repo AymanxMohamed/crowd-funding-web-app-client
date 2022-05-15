@@ -7,10 +7,9 @@ import { useAppDispatch } from "../../../app/hooks";
 import useAuthSlice from "../../../services/hooks/useAuthSlice";
 import { logout } from "../../../services/reducers/auth";
 import imageLink from "../utils/imageLink";
+import classNames from "../utils/classNames";
 
-function classNames(...classes:any) {
-    return classes.filter(Boolean).join(' ')
-}
+
 const navigation = [
     { name: 'Home', to: '/' },
     { name: 'Projects', to: '/projects/all' },
@@ -117,7 +116,7 @@ export default function Navbar() {
                                             <span className="sr-only">Open user menu</span>
                                             <img
                                                 className="h-8 w-8 rounded-full"
-                                                src={imageLink(user?.profile_picture)}
+                                                src={imageLink(user?.profile_picture,'user.png')}
                                                 alt=""
                                             />
                                         </Menu.Button>

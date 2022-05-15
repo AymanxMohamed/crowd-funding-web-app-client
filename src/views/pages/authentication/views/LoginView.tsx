@@ -14,21 +14,12 @@ const LoginView: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
   const { login } = useAuthApi();
 
-  function loginWithGoogle() {
-    console.log("clicked");
-  }
-
-  function loginWithGithub() {
-    console.log("clicked");
-  }
-
   const submitHandler = (values: any, { setSubmitting }: any) => {
-    console.log("inside submit");
     login(values)
       .then((r) => {
         navigate("/");
       })
-      .catch((err) => 
+      .catch((err) =>
       toast.error(err.message));
     setSubmitting(false);
   };
@@ -72,20 +63,6 @@ const LoginView: React.FC = (): JSX.Element => {
             </>
           )}
         </Formik>
-        <Line label="Or" />
-        <Button
-          text={"Login with Github"}
-          icon={"fa-brands fa-github"}
-          color={"gray"}
-          onClick={loginWithGithub}
-        />
-        <br />
-        <Button
-          text={"Login with Gmail"}
-          icon={"fa-brands fa-google"}
-          color={"red"}
-          onClick={loginWithGoogle}
-        />
       </div>
     </AuthWrapper>
   );
