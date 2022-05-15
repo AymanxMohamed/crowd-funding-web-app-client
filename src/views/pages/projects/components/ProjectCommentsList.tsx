@@ -13,7 +13,7 @@ type Props = {
     project_id: number
 }
 const ProjectCommentsList: React.FC<Props> = ({project_id,comments}): JSX.Element => {
-    const [myComments,setMyComments] = useState(comments.reverse())
+    const [myComments,setMyComments] = useState(comments)
     const [reportCommentOpen, setReportComment] = useState(false)
     const [commentId, setCommentId] = useState(0)
     const projectsApi = useProjectsApi();
@@ -44,7 +44,6 @@ const ProjectCommentsList: React.FC<Props> = ({project_id,comments}): JSX.Elemen
             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Comments</h5>
           </div>
           <div className="flow-root">
-              <CommentForm project_id={project_id} commentAdded={addComment}/>
               {myComments.map((comment:any, index) => (
                   <div key={index} className="flex text-sm text-gray-500 space-x-4 w-full">
                       <div className="flex-none py-10">
@@ -66,7 +65,9 @@ const ProjectCommentsList: React.FC<Props> = ({project_id,comments}): JSX.Elemen
 
                   </div>
               ))}
-              </div>
+              <CommentForm project_id={project_id} commentAdded={addComment}/>
+
+          </div>
         </div>
 
       </>

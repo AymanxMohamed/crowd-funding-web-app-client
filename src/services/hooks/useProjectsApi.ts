@@ -7,6 +7,10 @@ const useProjectsApi = () => {
     const response = await axiosClient.get("projects");
     return response.data;
   };
+  const getProjectsByCategory = async (category_id:any) => {
+    const response = await axiosClient.get("projects/category/"+category_id);
+    return response.data;
+  };
   const getFeaturedProjects = async () => {
     const response = await axiosClient.get("projects/featured");
     return response.data;
@@ -106,7 +110,8 @@ const useProjectsApi = () => {
     searchProjects,
     makeDonation,
     reportProject,
-    reportComment
+    reportComment,
+    getProjectsByCategory
   };
 };
 

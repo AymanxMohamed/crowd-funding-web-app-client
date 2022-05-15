@@ -5,6 +5,7 @@ import ProjectLayout from "../../views/pages/projects/ProjectLayout";
 import LatestProjects from "../../views/pages/projects/LatestProjects";
 import SearchProjects from "../../views/pages/projects/SearchProjects";
 import ProjectView from "../../views/pages/projects/ProjectView";
+import ProjectsByCategory from "../../views/pages/projects/ProjectsByCategory";
 
 export default function ProjectsRoute() {
   const location = useLocation();
@@ -16,6 +17,7 @@ export default function ProjectsRoute() {
         { path: "all", element: <AllProjects /> },
         { path: ":id", element: <ProjectView /> },
         { path: "search/:keyword", element: <SearchProjects /> },
+        { path: "category/:id/:category", element: <ProjectsByCategory /> },
         { path: "latest", element: <LatestProjects /> },
         {
           path: "*",

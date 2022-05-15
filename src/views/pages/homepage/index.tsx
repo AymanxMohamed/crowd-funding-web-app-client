@@ -3,7 +3,6 @@ import HeroHome from './components/HeroHome';
 import FeaturesHome from './components/Categories';
 import LatestFeatured from './components/LatestFeatured';
 import Feedbacks from './components/Feedbacks';
-import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import LatestProjects from "./components/LatestProjects";
 import CategoriesList from "./components/CategoriesList";
@@ -21,7 +20,6 @@ const HomePage: React.FC = (): JSX.Element => {
                 <LatestProjects />
                 <LatestFeatured />
                 <Feedbacks />
-                <Newsletter />
 
             </main>
 
