@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import useProjectsApi from "../../../../services/hooks/useProjectsApi";
+import {toast} from "react-toastify";
 
 const CommentForm: React.FC<any> = ({project_id,commentAdded}): JSX.Element => {
   const [comment, setComment] = useState("")
@@ -8,6 +9,7 @@ const CommentForm: React.FC<any> = ({project_id,commentAdded}): JSX.Element => {
     event.preventDefault()
     projectsApi.addComment(project_id,comment).then((response)=>{
       commentAdded(response.data)
+      toast("Comment Added Successfully",{type:'success'})
     })
   }
   return (

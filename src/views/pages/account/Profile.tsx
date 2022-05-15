@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Breadcrumb from "../../common/SharedComponents/ui/Breadcrumb";
 import UserProfileCard from "./components/UserProfileCard";
 import {Form, Formik} from "formik";
@@ -10,8 +10,10 @@ import useAuthApi from "../../../services/hooks/useAuthApi";
 import {useNavigate} from "react-router-dom";
 import {MEDIA_URL} from "../../../app/config";
 import {toast} from "react-toastify";
+import RemoveAccountModal from "./components/RemoveAccountModal";
 
 const Profile: React.FC = (): JSX.Element => {
+    const [showModal,setShowModal] = useState(false)
     const user = useAppSelector(state => state.auth.user)
     const {update} = useAuthApi();
     const navigate = useNavigate();
@@ -24,6 +26,7 @@ const Profile: React.FC = (): JSX.Element => {
     };
     return (
         <>
+            <RemoveAccountModal isOpen={showModal} onClose={()=>setShowModal(false)}/>
             <Breadcrumb title={"Settings"}></Breadcrumb>
             <main className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 m-12">
                 <div className="flex flex-wrap justify-between gap-10">
@@ -70,10 +73,17 @@ const Profile: React.FC = (): JSX.Element => {
                                                     )
                                                 }
                                     ></ImageInput>
-
-                                    <button type="submit"
-                                            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit
-                                    </button>
+                                    <div className="flex justify-between">
+                                        <button type="submit"
+                                                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit
+                                        </button>
+                                        <button onClick={(e)=>{
+                                            e.preventDefault()
+                                            setShowModal(true)
+                                        }} className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                            Remove My Account
+                                        </button>
+                                    </div>
                                 </Form>
                             )}
                         </Formik>

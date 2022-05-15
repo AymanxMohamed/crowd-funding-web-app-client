@@ -13,10 +13,12 @@ import Loading from "../../common/SharedComponents/Loading";
 import DonateModal from "./components/DonateModal";
 import moneyFormat from "../../common/utils/moneyFormat";
 import ImageGallery from "react-image-gallery";
+import ReportModal from "./components/ReportModal";
 
 
 const ProjectView: React.FC<any> = (): JSX.Element => {
   const [donateOpen, setDonateOpen] = useState(false)
+  const [reportOpen, setReportOpen] = useState(false)
   const [imagesList, setImagesList] = useState<[{ original: string, thumbnail: string }] | []>([]);
   const {id} = useParams()
   const [project, setProject] = useState({} as any)
@@ -27,6 +29,7 @@ const ProjectView: React.FC<any> = (): JSX.Element => {
     // @ts-ignore
     projectAPI.getProject(parseInt(id)).then(data => {
           setProject(data);
+          loadSliderImages(data.images);
           setLoaded(true);
         }
     ).catch(()=>{
@@ -35,19 +38,32 @@ const ProjectView: React.FC<any> = (): JSX.Element => {
     });
   },[id])
 
-  useEffect(() => {
-    if(project.hasOwnProperty('images'))
-    project.images.map((img:any) => {
+    const loadSliderImages=(images:any)=>{
+      setImagesList([]);
+      images.map((img:any) => {
       // @ts-ignore
       setImagesList(list => [...list, {original: imageLink(img.image_name), thumbnail: imageLink(img.image_name)}])
     })
-  }, [project]);
+    }
+
+  function reported(message:string|null){
+    if(!message) {
+      setReportOpen(false)
+      return;
+    }
+    if(message.length < 10) return toast('Report Reason is too short',{type:'error'});
+    projectAPI.reportProject(project.id,message).then((res)=>{
+      console.log(res)
+      toast('Project Reported',{type:'info'});
+    })
+    setReportOpen(false)
+  }
 
   if(!loaded)
     return <Loading/>
-  else
   return (
       <div className="bg-white text-left">
+        <ReportModal  onClose={reported} isOpen={reportOpen}/>
         <div className="mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:max-w-full lg:px-8">
           {/* Product */}
           <div className="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
@@ -63,8 +79,12 @@ const ProjectView: React.FC<any> = (): JSX.Element => {
             <div className="max-w-2xl mx-auto mt-14 sm:mt-16 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">
               <div className="flex flex-col-reverse">
                 <div className="mt-4">
-                  <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{project.title}</h1>
-
+                  <div className="flex justify-between items-center">
+                      <h1 className=" font-extrabold tracking-tight text-gray-900 sm:text-3xl">{project.title}</h1>
+                      <svg onClick={()=>setReportOpen(true)} xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 cursor-pointer text-red-500 hover:text-red-700" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clipRule="evenodd" />
+                      </svg>
+                  </div>
                   <h2 id="information-heading" className="sr-only">
                     Project
                   </h2>

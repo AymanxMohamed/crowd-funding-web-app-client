@@ -75,13 +75,13 @@ const useProjectsApi = () => {
       formData.append('amount',amount+"")
       return  await axiosClient.post("donations/create", formData);
   }
-  const reportProject = async (project_id:string,details:string) => {
+  const reportProject = async (project_id:any,details:string) => {
       const formData = new FormData();
-      formData.append('related_comment',project_id)
+      formData.append('related_project',project_id)
       formData.append('details',details)
       return  await axiosClient.post("reports/projects/create/", formData);
   }
-  const reportComment = async (comment_id:string,details:string) => {
+  const reportComment = async (comment_id:any,details:string) => {
       const formData = new FormData();
       formData.append('related_comment',comment_id)
       formData.append('details',details)
