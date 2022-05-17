@@ -95,6 +95,9 @@ const useProjectsApi = () => {
     const response = await axiosClient.get("tags");
     return response.data;
   }
+  const removeProject = async (project:string) => {
+    return await axiosClient.delete("projects/" + project +"/delete/");
+  }
 
   return {
     getProject,
@@ -111,7 +114,8 @@ const useProjectsApi = () => {
     makeDonation,
     reportProject,
     reportComment,
-    getProjectsByCategory
+    getProjectsByCategory,
+    removeProject
   };
 };
 

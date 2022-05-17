@@ -36,11 +36,11 @@ const ProjectCard: React.FC<projectCardProps> = ({ projectData, projectUrl, acti
             { projectData.details.substring(0,50) }
           </p>
           <div className="flex flex-row">
-            <CircularProgress progressPercent={donationPercent} />
             <div className="text-white m-auto">
               <div>TARGET</div>
               <div>{ moneyFormat(projectData.total_target) }</div>
             </div>
+            <CircularProgress progressPercent={donationPercent} />
           </div>
         </div>
       </div>

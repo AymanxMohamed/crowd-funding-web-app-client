@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import useProjectsApi from "../../../../services/hooks/useProjectsApi";
 import {toast} from "react-toastify";
+import useAuthSlice from "../../../../services/hooks/useAuthSlice";
+import {Link} from "react-router-dom";
 
 const CommentForm: React.FC<any> = ({project_id,commentAdded}): JSX.Element => {
   const [comment, setComment] = useState("")
   const projectsApi = useProjectsApi();
+  const {user} = useAuthSlice();
   const handleSubmit = (event:any)=> {
     event.preventDefault()
     projectsApi.addComment(project_id,comment).then((response)=>{
@@ -12,6 +15,8 @@ const CommentForm: React.FC<any> = ({project_id,commentAdded}): JSX.Element => {
       toast("Comment Added Successfully",{type:'success'})
     })
   }
+  if(!user)
+    return <h2>You Must <Link to="/auth/login">Login</Link> to Add a Comment</h2>
   return (
       <form onSubmit={handleSubmit}>
         <div className="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600">
