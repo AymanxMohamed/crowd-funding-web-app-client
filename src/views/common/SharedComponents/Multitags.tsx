@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 
 type Props = {
   options: any[],
+  selectedTags: any[],
   onSelectionChange: Function,
+  onSelectNewTag: Function,
 }
 
-const Multitags: React.FC<Props> = ({ options, onSelectionChange }): JSX.Element => {
-  const [selected, setSelected] = useState([] as any);
+const Multitags: React.FC<Props> = ({ options, selectedTags, onSelectionChange, onSelectNewTag }): JSX.Element => {
+  //const [selected, setSelected] = useState([] as any);
   const [suggestions, setSuggestions] = useState([] as any);
   const [userInput, setUserInput] = useState("");
 
@@ -20,37 +22,38 @@ const Multitags: React.FC<Props> = ({ options, onSelectionChange }): JSX.Element
         ? optionsWithAdd.filter(
           (option: any) =>
             option.name.includes(query) &&
-            !selected.find((item: any) => item.name === option.name)
+            !selectedTags.find((item: any) => item.name === option.name)
         ).slice(0, 4)
         : []
     );
     setUserInput(query);
   }
 
-  const selectTag = (suggestion: any = { id: null, name: userInput }) => {
-    if (canAddTag(suggestion)) {
-      let newSelected = [...selected, suggestion];
-      setSelected(newSelected);
+  const selectTag = (tag: any = { id: null, name: userInput }) => {
+    if (canAddTag(tag)) {
+      let newSelected = [...selectedTags, tag];
+      //setSelected(newSelected);
       updateSuggestions("");
       onSelectionChange(newSelected)
+      if (tag.id === null) onSelectNewTag(tag.name);
     }
   }
 
   const removeTag = (tag: any) => {
-    let newSelected = selected.filter((item: any) => item.name !== tag.name)
-    setSelected(newSelected);
+    let newSelected = selectedTags.filter((item: any) => item.name !== tag.name)
+    //setSelected(newSelected);
     onSelectionChange(newSelected)
   }
 
   const canAddTag = (tag: any) => {
-    return tag.name && !selected.find((item: any) => item.name === tag.name);
+    return tag.name && !selectedTags.find((item: any) => item.name === tag.name);
   }
 
 
   return (
     <div className="border-solid">
       <div className="flex flex-wrap">
-        {selected.map((item: any, index: number) => (
+        {selectedTags.map((item: any, index: number) => (
           <span
             key={`sel-key-${index}`}
             onClick={() => removeTag(item)}

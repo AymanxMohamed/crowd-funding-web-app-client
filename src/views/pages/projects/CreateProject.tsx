@@ -24,7 +24,7 @@ const CreateProject: React.FC = (): JSX.Element => {
     endDate: new Date(),
     key: 'selection',
   });
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState([] as any);
   const [selectedTags, setSelectedTags] = useState([]);
   const [formErrors, setFormErrors] = useState({} as any);
 
@@ -53,6 +53,25 @@ const CreateProject: React.FC = (): JSX.Element => {
     setSelectedTags(selectedList);
   }
 
+  const onNewTagSelected = (tagName: string) => {
+    if (tagName) {
+      let formData = new FormData();
+      formData.append("name", tagName);
+      projectsApi
+        .postTag(formData)
+        .then((data) => {
+          if (data) {
+            if (data.success === true) {
+              setTags([...tags, { id: data.created.id, name: data.created.name }]);
+            } else if (data.success === false) {
+              toast.error("Error: could not add a tag!");
+              setSelectedTags(selectedTags.filter((tag: any) => tag.name !== tagName));
+            }
+          }
+        });
+    }
+  }
+
   const moveToNextStep = (event: any) => {
     event.preventDefault();
     if (validateCurrentStep()) {
@@ -72,16 +91,15 @@ const CreateProject: React.FC = (): JSX.Element => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     let formData = new FormData(event.target);
-    selectedTags.map((tag: any) => formData.append("tags", tag.it)) // tags.name
+    selectedTags.map((tag: any) => formData.append("tags", tag.it));
     if (validateCurrentStep()) {
       projectsApi
         .postProject(formData)
         .then((data) => {
           if (data) {
             if (data.success === true) {
-              navigate("/projects/" + data.createdProject.id);
+              navigate("/projects/" + data.created.id);
             } else if (data.success === false) {
-              console.log("Errors", data.errors);
               toast.error("Data is not valid! Please review your inputs.");
               setFormErrors(data.errors);
             }
@@ -125,7 +143,7 @@ const CreateProject: React.FC = (): JSX.Element => {
       <ul className="stepper" data-mdb-stepper="stepper">
         {stepsTitles.map((stepTitle, index) => (
           <li key={"stepli" + index}
-            onClick={() => { setActiveStep(index) }}
+            onClick={() => { validateCurrentStep() && setActiveStep(index) }}
             className={"stepper-step " + (activeStep === index ? "stepper-active" : "")}>
             <div className="stepper-head">
               <span className="stepper-head-icon" style={{ minWidth: 30 }}>{index + 1}</span>
@@ -235,7 +253,9 @@ const CreateProject: React.FC = (): JSX.Element => {
                         </label>
                         <Multitags
                           options={tags}
+                          selectedTags={selectedTags}
                           onSelectionChange={onTagsSelectionChange}
+                          onSelectNewTag={onNewTagSelected}
                         />
                       </div>
 
