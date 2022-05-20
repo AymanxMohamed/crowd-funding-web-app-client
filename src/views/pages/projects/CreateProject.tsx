@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
 import { DateRange } from 'react-date-range';
-import Multiselect from 'multiselect-react-dropdown';
 
 import useProjectsApi from '../../../services/hooks/useProjectsApi';
 import { useAppSelector } from '../../../app/hooks';
+import Multitags from '../../common/SharedComponents/Multitags';
 
 const CreateProject: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
@@ -71,9 +71,11 @@ const CreateProject: React.FC = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    let formData = new FormData(event.target);
+    selectedTags.map((tag: any) => formData.append("tags", tag.it)) // tags.name
     if (validateCurrentStep()) {
       projectsApi
-        .postProject(new FormData(event.target))
+        .postProject(formData)
         .then((data) => {
           if (data) {
             if (data.success === true) {
@@ -231,12 +233,9 @@ const CreateProject: React.FC = (): JSX.Element => {
                         <label className="inline-flex mb-2 text-sm text-gray-800">
                           Project Tags
                         </label>
-                        <Multiselect
+                        <Multitags
                           options={tags}
-                          selectedValues={selectedTags}
-                          onSelect={onTagsSelectionChange}
-                          onRemove={onTagsSelectionChange}
-                          displayValue="name"
+                          onSelectionChange={onTagsSelectionChange}
                         />
                       </div>
 
